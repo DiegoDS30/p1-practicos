@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <script src="./main.js" defer></script>
+    <title>Practico 4 - Ejercicio 9</title>
+</head>
+<body>
+
+    <a href="../../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 9</h1>
+
+    <p><small>⭐⭐⭐ Desarrollar una aplicación que se encargará de armar presupuestos de un electricista, para que éste los pueda entregar a los clientes. 
+        El electricista cobra un valor fijo de $U 200 (doscientos pesos) por hora. 
+        Si utiliza un asistente, este asistente cobra $U 150 (ciento cincuenta pesos) por hora y trabaja la misma cantidad de horas y días que el electricista en caso de ser parte del proyecto. 
+        Al costo que haya de compra de materiales, el electricista le agrega un 10% (diez por ciento) por concepto de compra y traslado de los materiales hasta el lugar de la obra. <br>
+
+        <ol>
+            <li>Crear una función que reciba como parámetro un valor numérico y verifique que sea número y positivo y devuelva verdadero o falso. Esta función se puede utilizar para validar ingresos de horas y de cantidad de días.</li>
+            <li>Crear una función que reciba como parámetro el tipo de usuario (electricista o asistente), la cantidad de horas y la cantidad de días calcule el costo total de salario de esa persona para el proyecto y lo devuelva.</li>
+            <li>Crear una función que reciba el costo de materiales, calcule el costo total final de los materiales incluidos los traslados y devuelva el total final.</li>
+        </ol>
+
+        La aplicación se deberá encargar de pedir el ingreso de cantidad de días que el electricista va a trabajar, la cantidad de horas por día que va a trabajar, si va a utilizar un asistente o no, y el costo de materiales en la obra. <br>
+
+        En base a esos ingresos y las funciones creadas se debe imprimir en pantalla el total final del presupuesto. <br>
+    </small></p>
+
+    <label for="nbrDias">Dias que el electricista trabajara</label>
+    <input type="number" id="nbrDias"><br><br>
+
+    <label for="nbrHoras">Horas por dias que el electricista trabajara</label>
+    <input type="number" id="nbrHoras"><br><br>
+
+    <label for="nbrCosto">Costo de los materiales</label>
+    <input type="number" id="nbrCosto"><br><br>
+
+    <label for="assist">Usara asistente en el proyecto?</label>
+    <input type="radio" name="assist" id="chkAssistSi" value="1"><label for="chkAssistSi">Si</label>
+    <input type="radio" name="assist" id="chkAssistNo" value="0"><label for="chkAssistSi">No</label><br><br>
+
+    <input type="button" value="Calcular" id="btnCalcular">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="../Ej8/Ej8.html">Ejercicio anterior (Ej8)</a>
+
+</body>
+</html>
