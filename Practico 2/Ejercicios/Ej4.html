@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 4</h1>
+
+    <p><small>⭐ Ingresar un número, en caso que sea negativo, convertirlo a positivo, mostrar el número en un párrafo.
+        Multiplicando el valor negativo por -1 obtendremos el valor absoluto de ese número.</small></p>
+
+    <label for="nbrNumero">Ingrese un numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar">El valor absoluto es: </p>
+
+    <hr>
+
+    <a href="./Ej3.html">Ejercicio Anterior (Ej3)</a><br><br>
+    
+    <a href="./Ej5.html">Siguiente ejercicio (Ej5)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar')
+
+        if (numero < 0) {
+
+            mostrar.innerHTML = `El valor absoluto es: ${numero * -1}`
+
+        } else {
+
+            mostrar.innerHTML = `El valor absoluto es: ${numero}`
+
+        }
+
+    });
+
+</script>
+</html>

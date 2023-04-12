@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 20</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 20</h1>
+
+    <p><small>⭐⭐ Para elaborar galletas se necesita 1 taza de azúcar, 100 gr. de harina, 1 cucharada de aceite y una taza de agua. 
+        Pedirle al usuario ingreso de cantidad de cada ingrediente disponible e informarle cuantas recetas de galletas podrá elaborar. <br>
+        Se debe tener en cuenta que se podrán hacer tantas recetas como las que permita el ingrediente que esté en menor cantidad.</small></p>
+
+    <label for="nbrNumeroAzucar">Ingrese la cantidad de tazas de azucar: </label>
+    <input type="number" id="nbrNumeroAzucar" min="1"><br><br>
+
+    <label for="nbrNumeroHarina">Ingrese la cantidad de harina: (en gr.)</label>
+    <input type="number" id="nbrNumeroHarina" min="1"><br><br>
+
+    <label for="nbrNumeroAceite">Ingrese la cantidad de cucharadas de aceite: </label>
+    <input type="number" id="nbrNumeroAceite" min="1"><br><br>
+
+    <label for="nbrNumeroAgua">Ingrese la cantidad de tazas de agua: </label>
+    <input type="number" id="nbrNumeroAgua" min="1"><br><br>
+
+    <input type="button" value="Calcular" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej19.html">Ejercicio Anterior (Ej19)</a><br><br>
+    
+    <a href="./Ej21.html">Siguiente ejercicio (Ej21)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let azucar = document.getElementById ('nbrNumeroAzucar').valueAsNumber;
+        let harina = document.getElementById ('nbrNumeroHarina').valueAsNumber;
+        let aceite = document.getElementById ('nbrNumeroAceite').valueAsNumber;
+        let agua = document.getElementById ('nbrNumeroAgua').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar');
+
+        let recetas = Math.floor (Math.min (azucar, (harina / 100), aceite, agua));
+
+        if (recetas >= 1) {
+            
+            mostrar.innerHTML = `Usted podra hacer: ${recetas}, recetas de galletas`;
+
+        } else {
+
+            mostrar.innerHTML = `Con los ingredientes actuales no podra hacer ninguna receta de galletas`;
+
+        }
+    });
+
+</script>
+</html>

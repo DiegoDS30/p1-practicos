@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 14</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 14</h1>
+
+    <p><small>⭐ Utilizando un plan de viajero frecuente, un cliente de una aerolínea desea consultar donde puede viajar gratis con las millas acumuladas hasta el momento. <br>
+        Las opciones son las siguientes: <br>
+        60.000 millas - Europa (destino lejano) <br>
+        30.000 millas - América del Norte (destino intermedio) <br>
+        15.000 millas — América del Sur (destino cercano) <br>
+        Si el viajero es parte del plan "Plus" sus millas rinden el doble. <br>
+        Dado un ingreso de millas acumuladas y el ingreso de si es parte del plan Plus (s-sí, n-no), indicarle al usuario cual es el destino más lejano al que puede viajar de manera gratuita, o indicarle  que no dispone de millas suficientes en caso que no alcance los mínimos. <br>
+        Tengo 17.000 millas y soy parte del plan plus - > puedo viajar a América del Norte como destino más lejano.</small></p>
+
+    <label for="nbrNumero">Ingrese sus millas</label>
+    <input type="number" id="nbrNumero" min="0"><br><br>
+
+    <label for="plus">Miembro plus?</label>
+    <input type="radio" name="plus" id="chkSi" value="1"><label for="chkSi">Si</label>
+    <input type="radio" name="plus" id="chkNo" value="2"><label for="chkNo">No</label><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej13.html">Ejercicio Anterior (Ej13)</a><br><br>
+    
+    <a href="./Ej15.html">Siguiente ejercicio (Ej15)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let millas = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar');
+        let plusSi = document.getElementById ('chkSi').checked;
+        let plusNo = document.getElementById ('chkNo').checked;
+
+        plusSi ? millas *= 2 : millas;
+
+        if (!plusSi && !plusNo) {
+
+            mostrar.innerHTML = `Por favor especifique si es miembro plus.`
+
+        } else if (millas >= 60000) {
+
+            mostrar.innerHTML = `Usted tiene ${millas} acumuladas, puede viajar hasta Europa por 60.000 millas como destino mas lejano, America del Norte por 30.000 o America del Sur por 15.000`
+
+        } else if (millas >= 30000) {
+
+            mostrar.innerHTML = `Usted tiene ${millas} acumuladas, puede viajar hasta America del Norte por 30.000 como destino mas lejano o America del Sur por 15.000`
+
+        } else if (millas >= 15000) {
+
+            mostrar.innerHTML = `Usted tiene ${millas} acumuladas, puede viajar hasta America del Sur por 15.000 millas`
+
+        } else {
+
+            mostrar.innerHTML = `Usted no dispone de suficientes millas acumuladas`
+
+        }
+
+    });
+
+</script>
+</html>

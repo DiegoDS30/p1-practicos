@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 18</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 18</h1>
+
+    <p><small>⭐⭐ Solicitar un número al usuario e imprimir en un párrafo todos los números mayores a 30 y menores a 200 
+        que sean múltiplos del número ingresado por el usuario y pares simultáneamente. </small></p>
+
+    <label for="nbrNumero">Ingrese un numero: </label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="./Ej17.html">Ejercicio anterior (Ej17)</a><br><br>
+
+    <a href="./Ej19.html">Siguiente ejercicio (Ej19)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        mostrar.innerHTML = ``;
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+
+        for (let i = 1; i <= 200; i++) {
+
+            if (i > 30 && i < 200 && (i % numero) == 0 && (i % 2) == 0) {
+
+                mostrar.innerHTML += `${i}<br>`;
+
+            }
+
+        }
+
+    });
+
+</script>
+</html>

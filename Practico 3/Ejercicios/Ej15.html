@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 15</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 15</h1>
+
+    <p><small>⭐⭐ Pedir un número y dividirlo entre 20 hasta que el resultado sea menor a 100, mostrar el resultado. 
+        Se debe validar que el número ingresado sea mayor a 2000, en caso contrario avisar al usuario y volver a solicitar el número.</small></p>
+
+    <label for="nbrNumero">Ingrese un numero: </label>
+    <input type="number" id="nbrNumero" min="2000"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="./Ej14.html">Ejercicio anterior (Ej14)</a><br><br>
+
+    <a href="./Ej16.html">Siguiente ejercicio (Ej16)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+
+        if (numero < 2000) {
+
+            mostrar.innerHTML = `Por favor ingrese un numero mayor a 2000`
+
+        } else {
+
+            while (numero > 100) {
+
+                numero /= 20;
+
+            }
+
+            mostrar.innerHTML = `El resultado es: ${numero}`
+
+        }
+
+    });
+
+</script>
+</html>

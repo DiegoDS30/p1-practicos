@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 13</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 13</h1>
+
+    <p><small>⭐⭐ Un colegio nos solicitó una aplicación para apoyo de un curso de geometría. 
+        Nuestro objetivo será dibujar rectángulos. Para eso pediremos el alto y ancho y dibujaremos el rectángulo de esas dimensiones. 
+        utilizando un carácter apropiado (por ejemplo círculos, asteriscos, numerales, la letra x) <br><br>
+
+        Un escenario posible sería el siguiente: nos ingresan los valores ancho = 5, alto = 4. <br>
+        El rectángulo resultante será: <br>
+        00000 <br>
+        00000 <br>
+        00000 <br>
+        00000 </small></p>
+
+    <label for="nbrNumero1">Ingrese el alto: </label>
+    <input type="number" id="nbrNumero1"><br><br>
+
+    <label for="nbrNumero2">Ingrese el ancho: </label>
+    <input type="number" id="nbrNumero2"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="./Ej12.html">Ejercicio anterior (Ej12)</a><br><br>
+
+    <a href="./Ej14.html">Siguiente ejercicio (Ej14)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        mostrar.innerHTML = ``;
+        let numero1 = document.getElementById ('nbrNumero1').valueAsNumber;
+        let numero2 = document.getElementById ('nbrNumero2').valueAsNumber;
+
+        for (let i = 0; i < numero1; i++) {
+
+            for (let j = 0; j < numero2; j++) {
+
+                mostrar.innerHTML += `0`;
+
+            }
+
+            mostrar.innerHTML += `<br>`;
+
+        }
+
+    });
+
+</script>
+</html>

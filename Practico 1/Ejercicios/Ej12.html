@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej12</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 12</h1>
+
+    <p><small>⭐Solicitar ingresos de peso y altura para calcular índice de masa corporal Se asume que el peso se ingresó en kilogramos y la altura en metros.
+              El índice de masa corporal (IMC) es una medida de asociación entre la masa y la talla de un individuo ideada por el estadístico belga Adolphe Quetelet, por lo que también se conoce como indice de Quetelet. Se calcula según la expresión matemática:<br>
+              <img src="../imgs/ej12.png" alt="imc"><br>donde la masa se expresa en kilogramos y el cuadrado de la estatura en metros cuadrados.</small></p>
+
+    <label for="nbrValor1">Ingrese su peso: </label>
+    <input type="number" id="nbrValor1"><br><br>
+
+    <label for="nbrValor2">Ingrese su altura: </label>
+    <input type="number" id="nbrValor2"><br><br>
+
+    <input type="button" value="Calcular" id="btnCalcular">
+
+    <p id="mostrarResultado">IMC: </p>
+
+    <hr>
+
+    <a href="./Ej11.html">Ejercicio anterior (Ejercicio 11)</a><br><br>
+
+    <a href="./Ej13.html">Siguiente ejercicio (Ejercicio 13)</a>
+    
+</body>
+
+<script>
+
+document.getElementById ('btnCalcular').addEventListener ('click', () => {
+
+    let valor1 = document.getElementById ('nbrValor1').valueAsNumber;
+    let valor2 = document.getElementById ('nbrValor2').valueAsNumber;
+
+    let altura = valor2 / 100
+
+    document.getElementById ('mostrarResultado').innerHTML = `IMC: ${(valor1 / (Math.pow(altura, 2))).toFixed(1)}`;
+
+});
+
+</script>
+
+</html>

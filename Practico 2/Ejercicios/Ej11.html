@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 11</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 11</h1>
+
+    <p><small>⭐ Ingresar dos valores y una operación ("S"-suma, "R"-resta, "M"-multiplicación, "D"-división) y presionar un botón, al presionar el botón, dependiendo de la operación ingresada hacer el cálculo correspondiente entre el primer valor y el segundo, mostrar el resultado.</small></p>
+
+    <label for="nbrNumero">Ingrese el primer numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <label for="nbrNumero2">Ingrese el segundo numero</label>
+    <input type="number" id="nbrNumero2"><br><br>
+
+    <select id="operacion">
+        <option value="0">Seleccione una operación</option>
+        <option value="1">Suma</option>
+        <option value="2">Resta</option>
+        <option value="3">Multiplicación</option>
+        <option value="4">División</option>
+    </select><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar">Resultado: </p>
+
+    <hr>
+
+    <a href="./Ej10.html">Ejercicio Anterior (Ej10)</a><br><br>
+    
+    <a href="./Ej12.html">Siguiente ejercicio (Ej12)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let numero2 = document.getElementById ('nbrNumero2').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar');
+        let operacion = document.getElementById ('operacion').value;
+
+        switch (operacion) {
+            case '1':
+                mostrar.innerHTML = `Resultado: ${numero + numero2}`
+              break;
+            case '2':
+                mostrar.innerHTML = `Resultado: ${numero - numero2}`
+              break;
+            case '3':
+                mostrar.innerHTML = `Resultado: ${numero * numero2}`
+              break;
+            case '4':
+                mostrar.innerHTML = `Resultado: ${numero / numero2}`
+              break;
+            default:
+                mostrar.innerHTML = `Por favor introduzca una operacion`
+              break;
+        }
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 12</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 12</h1>
+
+    <p><small>⭐ Leer un caracter e indicar si es una vocal o no.</small></p>
+
+    <label for="txtCaracter">Ingrese un Caracter</label>
+    <input type="text" id="txtCaracter" maxlength="1"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej11.html">Ejercicio Anterior (Ej11)</a><br><br>
+    
+    <a href="./Ej13.html">Siguiente ejercicio (Ej13)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let caracter = document.getElementById ('txtCaracter').value.toLowerCase();
+        let mostrar = document.getElementById ('pMostrar');
+
+        switch (caracter) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                mostrar.innerHTML = `El caracter introducido es una vocal`
+              break;
+            default:
+                mostrar.innerHTML = `El caracter que introducio no es una vocal`
+              break;
+        }
+
+    });
+
+</script>
+</html>

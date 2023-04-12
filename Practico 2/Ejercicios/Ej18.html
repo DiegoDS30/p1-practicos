@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 18</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 18</h1>
+
+    <p><small>⭐⭐ Ingresar seis valores y retornar la suma total del valor absoluto de cada uno. Se deberá procurar que la solución utilice un único botón y un único campo de texto para tomar datos.</small></p>
+
+    <label for="nbrNumero">Ingrese un numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrar">La suma de los seis numeros es: </p>
+
+    <hr>
+
+    <a href="./Ej17.html">Ejercicio Anterior (Ej17)</a><br><br>
+    
+    <a href="./Ej19.html">Siguiente ejercicio (Ej19)</a>
+    
+    
+</body>
+<script>
+
+    let mostrar = document.getElementById ('pMostrar');
+    let contador = 0;
+    let numeroFinal = 0;
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+
+        if (contador == 6) {
+
+            mostrar.innerHTML = `La suma de los seis numeros es: ${numeroFinal}`;
+            document.getElementById ('btnEnviar').disabled = true
+
+        } else if (contador < 7){
+
+            numeroFinal += Math.abs(numero);
+            contador++;
+
+            numero.value = '';
+            numero.focus();
+
+        }
+
+    });
+
+</script>
+</html>

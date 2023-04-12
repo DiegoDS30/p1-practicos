@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 27</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 27</h1>
+
+    <p><small>⭐⭐ Implementar un programa que permita jugar al siguiente juego: Se trata de un juego entre dos jugadores. Consiste en adivinar el número que el otro jugador ingresa. <br>
+        El jugador 1 ingresa un número, luego el sistema le pide al jugador 2 que ingrese números hasta que adivine el número que el jugador 1 ingresó. <br><br>
+        
+        Se va contando la cantidad de intentos que realiza el jugador hasta adivinar el número. Los números a adivinar siempre están entre 1 y 100. <br><br>
+        
+        A modo de ayuda el sistema da pistas en función a la cercanía entre el número ingresado y el número a adivinar. <br><br>
+        
+        Si el número ingresado está a una distancia > 15 el sistema despliega el texto "estas lejos". <br>
+        Si el número ingresado está a una distancia entre 10 y 15 el sistema despliega el texto "te estás acercando". <br>
+        Si la distancia es entre 5 y 9 el sistema despliega el texto "cada vez más cerca". <br>
+        Si la distancia es entre 1 y 4 se despliega el texto "muy pero muy cerca". <br><br>
+        
+        Ej.: Si el número a adivinar es el y el jugador ingresa el 91 el texto que se despliega es "cada vez más cerca" Al finalizar mostrar la cantidad de intentos que llevó adivinar el número. <br>
+        Utilizando el método random de la clase Math se puede resolver el mismo problema pero con un número aleatorio generado por la aplicación, de esta forma se podría jugar "contra la computadora"
+        </small></p>
+
+    <label for="nbrNumeroJugador1">Jugador 1 ingrese un numero: </label>
+    <input type="number" id="nbrNumeroJugador1" min="1" max="100"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar"> <br><br>
+
+    <label for="nbrNumeroJugador2">Jugador 2 adivine el numero: </label>
+    <input type="number" id="nbrNumeroJugador2" min="1" max="100"> <br><br>
+
+    <input type="button" value="Adivinar" id="btnAdivinar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej26.html">Ejercicio Anterior (Ej26)</a><br><br>
+    
+    <a href="./Ej28.html">Siguiente ejercicio (Ej28)</a>
+    
+    
+</body>
+<script>
+
+    let numeroAdivinar = 0;
+    let contadorIntentos = 0;
+
+    let mostrar = document.getElementById ('pMostrar');
+
+    let numeroJ1 = document.getElementById ('nbrNumeroJugador1');
+    let btnEnviar = document.getElementById ('btnEnviar');
+    let numeroJ2 = document.getElementById ('nbrNumeroJugador2');
+    let btnAdivinar = document.getElementById ('btnAdivinar');
+
+    btnAdivinar.disabled = true;
+    numeroJ2.disabled = true;
+
+    btnEnviar.addEventListener ('click', () => {
+
+        numeroAdivinar = numeroJ1.valueAsNumber;
+        numeroJ1.value = ''
+        numeroJ1.disabled = true;
+        btnEnviar.disabled = true;
+        btnAdivinar.disabled = false;
+        numeroJ2.disabled = false;
+
+
+    })
+
+    btnAdivinar.addEventListener ('click', () => {
+
+        let intento = numeroJ2.valueAsNumber;
+        let distancia = Math.abs(numeroAdivinar - intento);
+        contadorIntentos++;
+
+        if (distancia > 15) {
+
+            mostrar.innerHTML = `Estas lejos.`;
+            
+        } else if (distancia >= 10 && distancia <=15) {
+ 
+            mostrar.innerHTML = `Te estas acercando.`;
+
+        } else if (distancia >= 5 && distancia <= 9) {
+
+            mostrar.innerHTML = `Cada vez mas cerca.`
+
+        } else if (distancia >= 1 && distancia <= 4) {
+
+            mostrar.innerHTML = `Muy pero muy cerca.`;
+
+        } else {
+
+            mostrar.innerHTML = `Felicidades! Encontraste el numero en ${contadorIntentos} intentos.`;
+
+        }
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 17</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 17</h1>
+
+    <p><small>⭐⭐ Utilizando solamente restas y estructuras repetitivas, obtener el cociente y resto de la división entera entre un dividendo y un divisor.</small></p>
+
+    <label for="nbrNumero1">Ingrese el dividendo: </label>
+    <input type="number" id="nbrNumero1"><br><br>
+
+    <label for="nbrNumero2">Ingrese el divisor: </label>
+    <input type="number" id="nbrNumero2"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="./Ej16.html">Ejercicio anterior (Ej16)</a><br><br>
+
+    <a href="./Ej18.html">Siguiente ejercicio (Ej18)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        let dividendo = document.getElementById ('nbrNumero1').valueAsNumber;
+        let divisor = document.getElementById ('nbrNumero2').valueAsNumber;
+
+        let cociente = 0
+        let resto = dividendo;
+
+        while (resto >= divisor) {
+
+            resto -= divisor;
+            cociente++
+
+        }
+
+        mostrar.innerHTML = `El cociente es: ${cociente}, y el resto es: ${resto}`
+
+    });
+
+</script>
+</html>

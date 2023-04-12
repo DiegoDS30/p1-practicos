@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 11</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 11</h1>
+
+    <p><small>⭐Ingresar tres números y al presionar un botón mostrar todos los números múItiplos del tercero que están entre los dos primeros números, 
+        contemplar el caso que los dos primeros números se ingresen invertidos (primero el mayor y después el menor).</small></p>
+
+    <label for="nbrNumero1">Ingrese el primer numero: </label>
+    <input type="number" id="nbrNumero1"><br><br>
+
+    <label for="nbrNumero2">Ingrese el segundo numero: </label>
+    <input type="number" id="nbrNumero2"><br><br>
+
+    <label for="nbrNumero3">Ingrese el tercer numero: </label>
+    <input type="number" id="nbrNumero3"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="./Ej10.html">Ejercicio anterior (Ej10)</a><br><br>
+
+    <a href="./Ej12.html">Siguiente ejercicio (Ej12)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        mostrar.innerHTML = ``;
+        let numero1 = document.getElementById ('nbrNumero1').valueAsNumber;
+        let numero2 = document.getElementById ('nbrNumero2').valueAsNumber;
+        let numero3 = document.getElementById ('nbrNumero3').valueAsNumber;
+
+        let numMin = Math.min (numero1, numero2);
+        let numMax = Math.max (numero1, numero2);
+
+        while (numMin <= numMax) {
+
+            if ((numMin % numero3) == 0) {
+
+                mostrar.innerHTML += `${numMin}<br>`;
+
+            }
+
+            numMin++;
+
+        }
+
+    });
+
+</script>
+</html>

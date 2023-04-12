@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 22</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 22</h1>
+
+    <p><small>⭐⭐ Una nueva ley descuenta un 4% al total de cada compra si el pago se efectúa con tarjeta de crédito o débito y el monto es inferior a los $10000. Dado un ingreso de total de compra y si es con tarjeta ("si" o "no"), calcular el total final de la compra. <br>
+        Pago de $2000 con tarjeta, costo final -> $ 1920 <br>
+        Pago de $12000 con tarjeta, costo final -> $12000 <br>
+        Pago de $3000 sin tarjeta, costo final -> $3000</small></p>
+
+    <label for="nbrNumero">Ingrese el total de la compra: </label>
+    <input type="number" id="nbrNumero" min="1"><br><br>
+
+    <label for="tarjeta">La compra fue con tarjeta?</label>
+    <input type="radio" name="tarjeta" id="chkSi" value="1"><label for="chkSi">Si</label>
+    <input type="radio" name="tarjeta" id="chkNo" value="2"><label for="chkNo">No</label><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrar">Costo final de la compra: </p>
+
+    <hr>
+
+    <a href="./Ej21.html">Ejercicio Anterior (Ej21)</a><br><br>
+    
+    <a href="./Ej23.html">Siguiente ejercicio (Ej23)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar');
+        let tarjetaSi = document.getElementById ('chkSi').checked;
+
+        if (tarjetaSi && numero < 10000) {
+
+            mostrar.innerHTML = `Costo final de la compra $${(numero - (numero * 0.04)).toFixed(2)}`
+
+        } else {
+
+            mostrar.innerHTML = `Costo final de la compra $${numero}`
+
+        }
+
+    });
+
+</script>
+</html>

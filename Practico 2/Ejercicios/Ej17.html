@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 17</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 17</h1>
+
+    <p><small>⭐ Escribir una expresión condicional equivalente a la que Se muestra, sin la utilización de condicionales if consecutivos (utilizar un solo if): <br><br>
+
+        if( a < 0 ) <br>
+          { <br>
+                document.querySelector(“#parrafo”).innerHTML = “a está fuera de rango”; <br>
+          } <br>
+        if( a > 10 ) <br>
+          { <br>
+                document.querySelector(“#parrafo”).innerHTML = “a está fuera de rango”; <br>
+          } <br><br>
+        
+        Crear las variables, asignarles valores y probar la nueva solución.</small></p>
+
+    <pre>El valor de las variables es el siguiente:
+                                            a = 20
+Para mostrar el resultado presionar el boton
+    </pre>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej16.html">Ejercicio Anterior (Ej16)</a><br><br>
+    
+    <a href="./Ej18.html">Siguiente ejercicio (Ej18)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        let a = 20;
+
+        (a < 0) || (a > 10) ? mostrar.innerHTML = `a está fuera de rango` : mostrar.innerHTML = `a esta en el rango` ;
+
+    });
+
+</script>
+</html>

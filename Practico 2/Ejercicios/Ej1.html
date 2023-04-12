@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 1</h1>
+
+    <p><small>⭐ Ingresar un número e indicar si es positivo o negativo.
+        El número será positivo si es mayor o igual a cero.</small></p>
+
+    <label for="nbrNumero">Ingrese un numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar">El numero ingresado es: </p>
+
+    <hr>
+    
+    <a href="./Ej2.html">Siguiente ejercicio (Ej2)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar')
+
+        if (numero >= 0) {
+
+            mostrar.innerHTML = `El numero ingresado es: Positivo`
+
+        } else {
+
+            mostrar.innerHTML = `El numero ingresado es: Negativo`
+
+        }
+
+    });
+
+</script>
+</html>

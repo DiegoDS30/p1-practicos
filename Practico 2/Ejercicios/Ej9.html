@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 9</h1>
+
+    <p><small>⭐ Se solicita una aplicación que ayude al usuario a la toma de decisiones al momento de salir de su casa. <br>
+        Los días domingo el usuario no trabaja, el resto de los días sí. <br>
+        Si la temperatura está por debajo de los 10 grados el usuario debe "abrigarse mucho", si la temperatura está por encima de los 20 grados el usuario deberá "ponerse ropa cómoda" y para casos intermedios usará "abrigo moderado". <br>
+        Se ingresa la temperatura y el día de la semana y la aplicación deberá mostrar la salida. A la salida se le incorporará para todos los casos la instrucción de levantarse: <br><br>
+        
+        Ejemplos de salida: <br>
+        Ej. 1: <br>
+        Levantarse <br>
+        Ponerse ropa cómoda <br>
+        Quedarse en casa, hoy no trabaja <br><br>
+        
+        Ej. 2: <br>
+        Levantarse <br>
+        Abrigarse Mucho <br>
+        Ir al trabajo <br><br>
+        
+        Prestar atención a que las tres acciones no tienen vinculación entre sí.</small></p>
+
+    <select id="diaSemana">
+        <option value="0">Que dia es?</option>
+        <option value="1">Lunes</option>
+        <option value="2">Martes</option>
+        <option value="3">Miercoles</option>
+        <option value="4">Jueves</option>
+        <option value="5">Viernes</option>
+        <option value="6">Sabado</option>
+        <option value="7">Domingo</option>
+    </select><br><br>
+
+    <label for="nbrNumero" min="-273" max="86">Cual es la temperatura? </label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej8.html">Ejercicio Anterior (Ej8)</a><br><br>
+    
+    <a href="./Ej10.html">Siguiente ejercicio (Ej10)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let dia = document.getElementById ('diaSemana').value;
+        let temp = document.getElementById ('nbrNumero').valueAsNumber
+        let mostrar = document.getElementById ('pMostrar');
+        let trabaja = '';
+        let abrigo = '';
+
+        if (dia == 7) {
+
+            trabaja = "Quedarse en casa, hoy no trabaja";
+
+        } else {
+
+            trabaja = "Ir al trabajo";
+
+        }
+
+        switch (dia) {
+
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+
+                if (temp < 10) {
+
+                    mostrar.innerHTML = `Levantarse<br>
+                                         Abrigarse mucho<br>
+                                         Ir al trabajo`
+
+                } else if (temp > 20) {
+
+                    mostrar.innerHTML = `Levantarse<br>
+                                         Ponerse ropa comoda<br>
+                                         Ir al trabajo`
+
+                } else {
+
+                    mostrar.innerHTML = `Levantarse<br>
+                                         Abrigo moderado<br>
+                                         Ir al trabajo`
+
+                }
+
+                break;
+            case 7:
+
+                if (temp < 10) {
+
+                    mostrar.innerHTML = `Levantarse<br>
+                                         Abrigarse mucho<br>
+                                         Quedarse en casa, hoy no trabaja`
+
+                } else if (temp > 20) {
+
+                    mostrar.innerHTML = `Levantarse<br>
+                                         Ponerse ropa comoda<br>
+                                         Quedarse en casa, hoy no trabaja`
+
+                } else {
+
+                    mostrar.innerHTML = `Levantarse<br>
+                                         Abrigo moderado<br>
+                                         Quedarse en casa, hoy no trabaja`
+
+                }
+
+                break;
+            default: mostrar.innerHTML = `Debe seleccionar un dia de la semana` 
+                break;
+
+        }
+
+        if (temp < 10) {
+
+            abrigo = "Abrigarse mucho"
+
+        } else if (temp > 20) {
+
+            abrigo = "Ponerse ropa comoda"
+
+        } else {
+
+            abrigo = "Abrigo moderado"
+
+        }
+
+        dia == 0 ? mostrar.innerHTML = `Debe seleccionar un dia de la semana` : mostrar.innerHTML = `Levantarse<br>
+                                                                                                    ${abrigo}<br>
+                                                                                                    ${trabaja}`
+
+    });
+
+</script>
+</html>

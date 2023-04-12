@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej8</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 8</h1>
+
+    <p><small>⭐ Ingresar tres valores y calcular la suma de los primeros dos menos el tercero.</small></p>
+
+    <label for="nbrValor1">Valor 1</label>
+    <input type="number" id="nbrValor1"><br><br>
+
+    <label for="nbrValor2">Valor 2</label>
+    <input type="number" id="nbrValor2"><br><br>
+
+    <label for="nbrValor3">Valor 3</label>
+    <input type="number" id="nbrValor3"><br><br>
+
+    <input type="button" value="Calcular" id="btnCalcular">
+
+    <p id="mostrarResultado">Resultado: </p>
+
+    <hr>
+
+    <a href="./Ej7.html">Ejercicio anterior (Ejercicio 7)</a><br><br>
+
+    <a href="./Ej9.html">Siguiente ejercicio (Ejercicio 9)</a>
+    
+</body>
+
+<script>
+
+document.getElementById ('btnCalcular').addEventListener ('click', () => {
+
+    let valor1 = document.getElementById ('nbrValor1').valueAsNumber;
+    let valor2 = document.getElementById ('nbrValor2').valueAsNumber;
+    let valor3 = document.getElementById ('nbrValor3').valueAsNumber;
+
+    document.getElementById ('mostrarResultado').innerHTML = `Resultado: ${(valor1 + valor2) - valor3}`;
+
+});
+
+</script>
+
+</html>

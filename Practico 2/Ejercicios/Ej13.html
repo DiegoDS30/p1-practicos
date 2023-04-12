@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 13</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 13</h1>
+
+    <p><small>⭐ Ingresar dos números y al presionar un botón indicar si el primero es múltiplo del segundo.</small></p>
+
+    <label for="nbrNumero">Ingrese el primer numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <label for="nbrNumero2">Ingrese el segundo numero</label>
+    <input type="number" id="nbrNumero2"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej12.html">Ejercicio Anterior (Ej12)</a><br><br>
+    
+    <a href="./Ej14.html">Siguiente ejercicio (Ej14)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let numero2 = document.getElementById ('nbrNumero2').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar');
+
+        if ((numero % numero2) == 0) {
+
+            mostrar.innerHTML = `El primero numero es multiplo del segundo`
+
+        } else {
+
+            mostrar.innerHTML = `El primer numero no es multiplo del segundo`
+
+        }
+
+    });
+
+</script>
+</html>

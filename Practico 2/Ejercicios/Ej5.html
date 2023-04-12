@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 5</h1>
+
+    <p><small>⭐ Ingresar un número y mostrar si es mayor que 10 y menor que 20 o no.</small></p>
+
+    <label for="nbrNumero">Ingrese un numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar">El numero es: </p>
+
+    <hr>
+
+    <a href="./Ej4.html">Ejercicio Anterior (Ej4)</a><br><br>
+    
+    <a href="./Ej6.html">Siguiente ejercicio (Ej6)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar')
+
+        if (numero > 10 && numero < 20) {
+
+            mostrar.innerHTML = `El numero es: Mayor que 10 y menor que 20`
+
+        } else {
+
+            mostrar.innerHTML = `El numero es: O menor que 10 O mayor a 20`
+
+        }
+
+    });
+
+</script>
+</html>

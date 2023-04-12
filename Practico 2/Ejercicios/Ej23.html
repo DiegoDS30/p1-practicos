@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 23</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 23</h1>
+
+    <p><small>⭐⭐ Se ingresan las notas de examen de un grupo de estudiantes. Luego de cada ingreso actualizar la información mostrando cuántos perdieron (<70), cuántos salvaron, y cuántos sacaron una muy buena nota (>90). A su vez indicar cuál fue el promedio de notas, cuál fue la nota máxima y cuál fue la nota mínima.</small></p>
+
+    <label for="nbrNumero">Ingrese la nota del examen: </label>
+    <input type="number" id="nbrNumero" min="1" max="100"><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrarPerdieron">Cantidad de alumnos que perdieron: </p>
+    <p id="pMostrarSalvaron">Cantidad de alumnos que salvaron: </p>
+    <p id="pMostrarBuena">Cantidad de alumnos que sacaron muy buena nota: </p>
+    <p id="pMostrar">Promedio de notas: , nota maxima: , nota minima: </p>
+
+    <hr>
+
+    <a href="./Ej22.html">Ejercicio Anterior (Ej22)</a><br><br>
+    
+    <a href="./Ej24.html">Siguiente ejercicio (Ej24)</a>
+    
+    
+</body>
+<script>
+
+    let perdieron = 0;
+    let salvaron = 0;
+    let buenaNota = 0;
+    let contador = 0;
+    let promedio = 0;
+    let notaMinima = 0;
+    let notaMaxima = 0;
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar');
+        let mostrarPerdieron = document.getElementById ('pMostrarPerdieron');
+        let mostrarSalvaron = document.getElementById ('pMostrarSalvaron');
+        let mostrarBuena = document.getElementById ('pMostrarBuena');
+        
+        contador++;
+        promedio += numero;
+
+        contador == 1 ? notaMinima = numero : notaMinima;
+        contador == 1 ? notaMaxima = numero : notaMaxima;
+
+        numero < notaMinima ? notaMinima = numero : notaMinima;
+        numero > notaMaxima ? notaMaxima = numero : notaMaxima;
+
+        if (numero < 70) {
+
+            perdieron++;
+
+        } else if (numero > 90) {
+
+            buenaNota++;
+
+        } else {
+
+            salvaron++;
+
+        }
+
+        mostrarPerdieron.innerHTML = `Cantidad de alumnos que perdieron: ${perdieron}`;
+        mostrarSalvaron.innerHTML = `Cantidad de alumnos que salvaron: ${salvaron}`;
+        mostrarBuena.innerHTML = `Cantidad de alumnos que sacaron muy buena nota: ${buenaNota}`;
+        mostrar.innerHTML = `Promedio de notas: ${(promedio / contador).toFixed(0)}, nota maxima: ${notaMaxima}, nota minima: ${notaMinima}`;
+    
+
+    });
+
+</script>
+</html>

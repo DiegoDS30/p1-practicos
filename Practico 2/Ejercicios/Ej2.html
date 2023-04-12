@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 2</h1>
+
+    <p><small>⭐ Ingresar un número y dar aviso, si el número es mayor a 10 mostrar un aviso, "mayor que diez".</small></p>
+
+    <label for="nbrNumero">Ingrese un numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar">El numero ingresado es: </p>
+
+    <hr>
+
+    <a href="./Ej1.html">Ejercicio Anterior (Ej1)</a><br><br>
+    
+    <a href="./Ej3.html">Siguiente ejercicio (Ej3)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrar = document.getElementById ('pMostrar')
+
+        if (numero > 10) {
+
+            mostrar.innerHTML = `El numero ingresado es: Mayor que diez`
+
+        } else {
+
+            mostrar.innerHTML = `El numero ingresado es: Menor que diez`
+
+        }
+
+    });
+
+</script>
+</html>

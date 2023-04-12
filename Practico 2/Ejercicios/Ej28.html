@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 28</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 28</h1>
+
+    <p><small>⭐⭐ Programar un sistema que servirá para llevar puntajes en un juego de cartas. 
+        Para cada mano se ingresará el puntaje obtenido por cada equipo, siendo dos los equipos que participan del juego. <br><br>
+
+        En cada mano se debe mostrar en pantalla el puntaje total actualizado de cada equipo. 
+        Se seguirán solicitando ingresos de puntajes de los dos equipos hasta que alguno de los equipos totalice 30 puntos o más. 
+        En ese momento se deben mostrar los totales finales y deshabilitar el botón de ingreso de datos.
+        </small></p>
+
+    <label for="nbrNumeroEquipo1">Ingrese el puntaje del equipo 1: </label>
+    <input type="number" id="nbrNumeroEquipo1" min="1" max="30"><br><br>
+
+    <label for="nbrNumeroEquipo2">Ingrese el puntaje del equipo 2: </label>
+    <input type="number" id="nbrNumeroEquipo2" min="1" max="30"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar"> <br><br>
+
+
+    <p id="pMostrar">Puntaje total del equipo 1: <br><br>
+                     Puntaje total del equipo 2: </p>
+
+    <hr>
+
+    <a href="./Ej27.html">Ejercicio Anterior (Ej27)</a><br><br>
+    
+    <a href="./Ej29.html">Siguiente ejercicio (Ej29)</a>
+    
+    
+</body>
+<script>
+
+    let puntajeE1 = 0;
+    let puntajeE2 = 0;
+
+    let mostrar = document.getElementById ('pMostrar');
+
+    let numeroE1 = document.getElementById ('nbrNumeroEquipo1');
+    let numeroE2 = document.getElementById ('nbrNumeroEquipo2');
+    let btnEnviar = document.getElementById ('btnEnviar');
+
+    btnEnviar.addEventListener ('click', () => {
+
+        puntajeE1 += numeroE1.valueAsNumber;
+        puntajeE2 += numeroE2.valueAsNumber;
+
+        if (puntajeE1 >= 30 || puntajeE2 >= 30) {
+
+            puntajeE1 > puntajeE2 ? mostrar.innerHTML = `El equipo 1 gano con ${puntajeE1} puntos <br><br>El equipo 2 quedo con ${puntajeE2} puntos.` : 
+            mostrar.innerHTML = `El equipo 2 gano con ${puntajeE2} puntos <br><br>El equipo 1 quedo con ${puntajeE1} puntos.`
+
+            btnEnviar.disabled = true;
+
+        } else {
+
+            mostrar.innerHTML = `Puntaje total del equipo 1: ${puntajeE1} <br><br> Puntaje total del equipo 2: ${puntajeE2}`
+
+        }
+
+    });
+
+</script>
+</html>

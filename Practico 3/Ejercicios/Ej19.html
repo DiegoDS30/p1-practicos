@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <style>
+        table, th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Practico 3 - Ejercicio 19</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 19</h1>
+
+    <p><small>⭐⭐⭐ Crear un calendario de un mes. Se ingresa el mes del año, el día de la semana en que comienza ese mes 
+        y en base a esos ingresos se debe armar una tabla con formato de calendario de mes.</small></p>
+
+    <select name="mes" id="sltMes">
+        <option value="0">Selecciones el mes</option>
+        <option value="31">Enero</option>
+        <option value="28">Febrero</option>
+        <option value="31">Marzo</option>
+        <option value="30">Abril</option>
+        <option value="31">Mayo</option>
+        <option value="30">Junio</option>
+        <option value="31">Julio</option>
+        <option value="31">Agosto</option>
+        <option value="30">Septiembre</option>
+        <option value="31">Octubre</option>
+        <option value="30">Noviembre</option>
+        <option value="31">Diciembre</option>
+    </select> <br><br>
+
+    <select name="dia" id="sltDia">
+        <option value="0">Seleccione el dia</option>
+        <option value="1">Lunes</option>
+        <option value="2">Martes</option>
+        <option value="3">Miercoles</option>
+        <option value="4">Jueves</option>
+        <option value="5">Viernes</option>
+        <option value="6">Sabado</option>
+        <option value="7">Domingo</option>
+    </select> <br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir"><br><br>
+
+    <div id="pMostrar"></div>
+
+    <hr>
+    
+    <a href="./Ej18.html">Ejercicio anterior (Ej18)</a><br><br>
+
+    <a href="./Ej20.html">Siguiente ejercicio (Ej20)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        mostrar.innerHTML = ``;
+        let mes = parseInt(document.getElementById ('sltMes').value);
+        let dia = parseInt(document.getElementById ('sltDia').value);
+
+        let contadorDia = 1;
+
+        let diasDeLaSemana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+
+        if (mes == 0 || dia == 0) {
+
+            mostrar.innerHTML = `Por favor ingrese una fecha correcta`;
+
+        } else {
+
+            let calendario = `<table>
+                                    <tr>`;
+
+            // For para crear los dias del mes (los que aparecen arriba)
+
+            for (let i = 0; i < diasDeLaSemana.length; i++) {
+
+                calendario += `<th> ${diasDeLaSemana [i]} </th>`
+
+            }
+
+            calendario += `</tr>
+                            <tr>`;
+
+            //  For para crear celdas vacias, antes del primer dia del mes
+
+            for (let i = 1; i < dia; i++) {
+
+                calendario += `<td></td>`;
+
+            }
+
+            // Celdas para los dias del mes
+
+            while (contadorDia <= mes) {
+
+                calendario += `<td> ${contadorDia} </td>`;
+
+                // if para verificar si llegamos al final de la semana
+
+                if (((dia + contadorDia - 1) % 7) == 0) {
+
+                    calendario += `</tr><tr>`
+
+                } 
+
+                // Pasamos al siguiente dia
+
+                contadorDia++;
+
+            }
+
+            // Celdas vacias para el final del mes
+
+            for (let i = (dia + mes) % 7; i < 7; i++) {
+
+                calendario += `<td></td>`;
+
+            }
+
+            calendario += `</tr>
+                        </table>`;
+
+            mostrar.innerHTML = calendario;
+
+        }
+
+    });
+
+</script>
+</html>

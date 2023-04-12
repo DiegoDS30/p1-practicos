@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 26</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 26</h1>
+
+    <p><small>⭐⭐ Un hotel termal tiene una promoción. Si el cliente se hospeda por un mínimo de 3 noches, recibe una noche de alojamiento de regalo. Si se hospeda por 7 noches o más recibe dos noches de alojamiento de regalo, 
+        pero además si paga con tarjeta de crédito en este último caso se le regala la tercera noche de alojamiento. El costo de cada noche de alojamiento es de $ 40. <br>
+        Dado un ingreso de cantidad de noches a alojarse y medio de pago (e-efectivo, t-tarjeta), indicarle al usuario cuantas noches son las que tiene de regalo, 
+        cuantos son los días que se va a poder alojar en total y cuál es el monto final a pagar. Se deben contemplar todos los casos, incluso los que no generan días gratis. <br>
+        Ej.: 9 noches pagadas con tarjeta -> hay a noches de regalo, el usuario se hospeda 12 noches, el costo total son $ 360.</small></p>
+
+    <label for="nbrNumero">Cuantas noches se va a alojar? </label>
+    <input type="number" id="nbrNumero" min="1"><br><br>
+
+    <label for="metodo">Metodo de pago</label>
+    <input type="radio" name="metodo" id="chkTarjeta" value="1"><label for="chkTarjeta">Tarjeta</label>
+    <input type="radio" name="metodo" id="Efectivo" value="2"><label for="Efectivo">Efectivo</label><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrarTotal">Monto final a pagar: </p>
+    <p id="pMostrarRegalo">Dias de regalo: </p>
+    <p id="pMostrarDiasTotal">Dias en total: </p>
+
+    <hr>
+
+    <a href="./Ej25.html">Ejercicio Anterior (Ej25)</a><br><br>
+    
+    <a href="./Ej27.html">Siguiente ejercicio (Ej27)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let tarjeta = document.getElementById ('chkTarjeta').checked;
+        let total = document.getElementById ('pMostrarTotal');
+        let diasRegalo = document.getElementById ('pMostrarRegalo');
+        let diasTotal = document.getElementById ('pMostrarDiasTotal');
+        let costo = 40;
+        let regalo = 0;
+
+        if (numero >= 7) {
+
+            regalo = 2;
+
+            tarjeta ? regalo = 3 : regalo;
+
+        } else if (numero >= 3) {
+
+            regalo = 1;
+
+        }
+
+        total.innerHTML = `Monto final a pagar: $${numero * costo}`;
+        diasRegalo.innerHTML = `Dias de regalo: ${regalo}`;
+        diasTotal.innerHTML = `Dias en total: ${numero + regalo}`;
+
+    });
+
+</script>
+</html>

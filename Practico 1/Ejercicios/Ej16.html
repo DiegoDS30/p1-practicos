@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej16</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 16</h1>
+
+    <p><small>⭐⭐Para un equipo de fútbol el cálculo de los puntos obtenidos en el campeonato se asigna de la siguiente manera: <br><br>
+
+        Tres puntos por cada partido ganado. <br>
+        Un punto por cada partido empatado. <br>
+        Ningún punto por partido perdido. <br><br>
+        
+        Solicitar el ingreso de partidos ganados, empatados y perdidos y calcular el total de puntos obtenidos por ese equipo.
+        Tener en cuenta que si bien un dato se va a solicitar, no es relevante para los cálculos.</small></p>
+
+    <label for="nbrValor1">Ingrese partidos ganados: </label>
+    <input type="number" id="nbrValor1"><br><br>
+
+    <label for="nbrValor2">Ingrese partidos empatados: </label>
+    <input type="number" id="nbrValor2"><br><br>
+
+    <label for="nbrValor3">Ingrese partidos perdidos: </label>
+    <input type="number" id="nbrValor3"><br><br>
+
+    <input type="button" value="Calcular" id="btnCalcular">
+
+    <p id="mostrarResultado">Total de puntos obtenidos: 0</p>
+
+    <hr>
+
+    <a href="./Ej15.html">Ejercicio anterior (Ejercicio 15)</a><br><br>
+
+    <a href="./Ej17.html">Siguiente ejercicio (Ejercicio 17)</a>
+    
+</body>
+
+<script>
+
+let contador = 0;
+
+document.getElementById ('btnCalcular').addEventListener ('click', () => {
+
+    let valor1 = document.getElementById ('nbrValor1');
+    let valor2 = document.getElementById ('nbrValor2');
+    let valor3 = document.getElementById ('nbrValor3');
+
+
+    if (valor1.value == "") {
+
+        contador += 0
+
+    } else {
+
+        contador += valor1.valueAsNumber * 3;
+
+    }
+
+    if (valor2.value == "") {
+
+        contador += 0
+
+    } else {
+
+        contador += valor2.valueAsNumber;
+
+    }
+
+    if (valor3.value == "") {
+
+        contador += 0
+
+    } else {
+
+        contador += 0;
+
+    }
+
+    document.getElementById ('mostrarResultado').innerHTML = `Total de puntos obtenidos: ${contador}`;
+
+});
+
+</script>
+
+</html>

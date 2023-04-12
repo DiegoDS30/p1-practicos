@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej1</title>
+</head>
+<body>
+    
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 1</h1>
+
+    <p><small>⭐ Leer el nombre y apellido de una persona. Mostrarlo con el formato "apellido, nombre" primero el apellido, una coma, luego el nombre.
+        Prestar atención que se deben concatenar cadenas de texto variables y además se debe incluir un espacio en blanco luego de la coma.</small></p>
+
+    <label for="txtNombre">Nombre</label>
+    <input type="text" id="txtNombre"><br><br>
+
+    <label for="txtApellido">Apellido</label>
+    <input type="text" id="txtApellido"><br><br>
+
+    <input type="button" value="Mostrar formateado" id="btnMostrar">
+
+    <p id="mostrarNombre"></p>
+
+    <hr>
+
+    <a href="./Ej2.html">Siguiente Ejercicio (Ejercicio 2)</a>
+
+</body>
+
+<script>
+
+document.getElementById ('btnMostrar').addEventListener ('click', () => {
+
+    let nombre = document.getElementById ('txtNombre').value;
+    let apellido = document.getElementById ('txtApellido').value;
+
+    document.getElementById ('mostrarNombre').innerHTML = `${apellido}, ${nombre}`
+
+});
+
+</script>
+
+</html>

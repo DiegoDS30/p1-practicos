@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 21</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 21</h1>
+
+    <p><small>⭐⭐ Una empresa de bienes raíces ofrece casas de interés social, bajo las siguientes condiciones: 
+        Si los ingresos del comprador son menores de $20.000, el primer pago será del 15% de costo de la casa y el resto se distribuirá en pagos mensuales a pagar en 7 años. 
+        Si los ingresos del comprador son de $20.000 o más la cuota inicial será del 30% del costo de la casa y el resto se distribuirá en pagos mensuales durante 1 año. 
+        La empresa quiere obtener cuánto debe pagar un comprador por concepto del primer pago y cuánto por cada pago parcial.</small></p>
+
+    <label for="nbrNumero">Escriba sus ingresos: </label>
+    <input type="number" id="nbrNumero" min="1"><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrarPrimerPago">Usted debe pagar en el primer pago: </p>
+    <p id="pMostrarPagoParcial">Y por mes: </p>
+
+    <hr>
+
+    <a href="./Ej20.html">Ejercicio Anterior (Ej20)</a><br><br>
+    
+    <a href="./Ej22.html">Siguiente ejercicio (Ej22)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrarPrimer = document.getElementById ('pMostrarPrimerPago');
+        let mostrarParcial = document.getElementById ('pMostrarPagoParcial');
+
+        if (numero > 0 && numero < 20000) {
+
+            mostrarPrimer.innerHTML = `Usted debe pagar en el primer pago: $${numero * 0.15}`;
+            mostrarParcial.innerHTML = `Y por mes: $${((numero - (numero * 0.15)) / 83).toFixed(2)} durante 7 años`;
+
+        } else if (numero >= 20000) {
+
+            mostrarPrimer.innerHTML = `Usted debe pagar en el primer pago: $${numero * 0.30}`;
+            mostrarParcial.innerHTML = `Y por mes: $${((numero - (numero * 0.30)) / 11).toFixed(2)} durante 1 año`;
+
+        }
+
+    });
+
+</script>
+</html>

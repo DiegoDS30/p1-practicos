@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej4</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 4</h1>
+
+    <p><small>⭐ Ingresar dos valores y mostrar la suma de esos valores en un párrafo y en otro párrafo el resultado de la multiplicación de esos dos valores.
+        Se recomienda capturar los dos valores una única vez y luego operar con ellos en una única función.</small></p>
+
+    <label for="nbrValor1">Valor 1</label>
+    <input type="number" id="nbrValor1"><br><br>
+
+    <label for="nbrValor2">Valor 2</label>
+    <input type="number" id="nbrValor2"><br><br>
+
+    <input type="button" value="Calcular suma y multiplicar" id="btnCalcular">
+
+    <p id="mostrarResultadoSuma">Resultado de suma: </p>
+
+    <p id="mostrarResultadoMult">Resultado de multiplicación</p>
+
+    <hr>
+
+    <a href="./Ej3.html">Ejercicio anterior (Ejercicio 3)</a><br><br>
+
+    <a href="./Ej5.html">Siguiente ejercicio (Ejercicio 5)</a>
+    
+</body>
+
+<script>
+
+document.getElementById ('btnCalcular').addEventListener ('click', () => {
+
+    let valor1 = document.getElementById ('nbrValor1').valueAsNumber;
+    let valor2 = document.getElementById ('nbrValor2').valueAsNumber;
+
+    document.getElementById ('mostrarResultadoSuma').innerHTML = `Resultado de suma: ${valor1 + valor2}`;
+    document.getElementById ('mostrarResultadoMult').innerHTML = `Resultado de multiplicación ${valor1 * valor2}`;
+
+});
+
+</script>
+
+</html>

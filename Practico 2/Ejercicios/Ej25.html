@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 25</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 25</h1>
+
+    <p><small>⭐⭐ Programar un sistema que administrará pedidos de compras de cámaras fotográficas. 
+        Al inicio de la aplicación se ingresa el stock inicial de cámaras disponibles para la venta. 
+        A continuación se comienzan a recibir solicitudes de pedidos del producto. 
+        El cliente ingresará su nombre y a continuación la cantidad de unidades que desea. 
+        Mientras haya stock disponible se seguirán procesando solicitudes. 
+        Si el pedido supera la cantidad de stock disponible restante, se deberá informar del problema y esa solicitud no se tendrá en cuenta. 
+        Al vaciar el stock, deshabilitar el botón de compra. 
+        Informar el nombre del cliente que compró más cantidad de cámaras en un pedido. Informar la cantidad de pedidos que se procesaron en total.</small></p>
+
+    <hr><br>
+
+    <label for="nbrStock">Ingrese el stock de camaras</label>
+    <input type="number" id="nbrStock" min="1"><br><br>
+
+    <input type="button" value="Ingresar" id="btnEnviarStock"><br>
+
+    <p id="pStock"></p>
+
+    <hr><br>
+
+    <label for="txtNombre">Cual es su nombre: </label>
+    <input type="text" id="txtNombre"><br><br>
+
+    <label for="nbrCamaras">Cuantas camaras va a comprar?</label>
+    <input type="number" id="nbrCamaras"><br><br>
+
+    <input type="button" value="Comprar" id="btnComprar"><br><br>
+
+    <p id="pMostrar"></p>
+    <p id="pAviso"></p>
+
+    <hr>
+
+    <a href="./Ej24.html">Ejercicio Anterior (Ej24)</a><br><br>
+    
+    <a href="./Ej26.html">Siguiente ejercicio (Ej26)</a>
+    
+    
+</body>
+<script>
+
+    let stockInicial;
+    let stockRestante;
+    let cantidadPedidos = 0;
+    let compraMax = 0;
+    let nombreMax;
+
+    let stockInput = document.getElementById ('nbrStock');
+    let enviarStock = document.getElementById ('btnEnviarStock');
+    let stock = document.getElementById ('pStock')
+
+    let nombreInput = document.getElementById ('txtNombre');
+    let camarasInput = document.getElementById ('nbrCamaras');
+    let comprarBoton = document.getElementById ('btnComprar');
+
+    let mostrar = document.getElementById ('pMostrar');
+
+    nombreInput.disabled = true;
+    camarasInput.disabled = true;
+    comprarBoton.disabled = true;
+
+    enviarStock.addEventListener ('click', () => {
+
+        stockInicial = stockInput.valueAsNumber;
+        stockRestante = stockInicial;
+
+        nombreInput.disabled = false;
+        camarasInput.disabled = false;
+        comprarBoton.disabled = false;
+
+        stockInput.disabled = true;
+        enviarStock.disabled = true;
+
+        stock.innerHTML = `Stock restante: ${stockRestante}`
+
+    });
+
+    comprarBoton.addEventListener ('click', () => {
+
+        let cantidadCamaras = camarasInput.valueAsNumber;
+
+        if (cantidadCamaras <= stockRestante) {
+
+            let nombre = nombreInput.value;
+
+            cantidadPedidos++;
+            stockRestante -= cantidadCamaras;
+
+            if (cantidadCamaras > compraMax) {
+
+                compraMax = cantidadCamaras;
+                nombreMax = nombre;
+
+            }
+
+            if (stockRestante === 0) {
+
+                comprarBoton.disabled = true;
+
+                stockInput.disabled = false;
+                enviarStock.disabled = false;
+
+            }
+
+            mostrar.innerHTML = `Pedidos en total: ${cantidadPedidos} <br>
+                                 Cliente que compro mas cantidad de camaras: ${nombreMax}`
+            stock.innerHTML = `Stock restante: ${stockRestante}`
+
+        } else {
+
+            mostrar.innerHTML = `Solo nos quedan ${stockRestante} camaras`;
+
+        }
+
+    })
+
+</script>
+</html>

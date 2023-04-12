@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej15</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 15</h1>
+
+    <p><small>⭐⭐Crear un campo de texto y un botón para que cada vez que se ingrese un número en el campo de texto se acumule el total en una variable.
+              Al presionar otro botón mostrar el resultado final acumulado.</small></p>
+
+    <label for="nbrValor1">Ingrese un número: </label>
+    <input type="number" id="nbrValor1"><br><br>
+
+    <input type="button" value="Incrementar" id="btnCalcular">
+
+    <input type="button" value="Mostrar" id="btnMostrar">
+
+    <p id="mostrarResultado">Número acumulado: 0</p>
+
+    <hr>
+
+    <a href="./Ej14.html">Ejercicio anterior (Ejercicio 14)</a><br><br>
+
+    <a href="./Ej16.html">Siguiente ejercicio (Ejercicio 16)</a>
+    
+</body>
+
+<script>
+
+let contador = 0;
+
+document.getElementById ('btnCalcular').addEventListener ('click', () => {
+
+    let valor1 = document.getElementById ('nbrValor1').valueAsNumber;
+
+    contador += valor1;
+
+});
+
+document.getElementById ('btnMostrar').addEventListener ('click', () => {
+
+    document.getElementById ('mostrarResultado').innerHTML = `Número acumulado: ${contador}`;
+
+})
+
+</script>
+
+</html>

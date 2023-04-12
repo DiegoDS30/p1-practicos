@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 16</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 16</h1>
+
+    <p><small>⭐ Escribir una expresión condicional equivalente, sin la utilización de condicionales if anidados (utilizar un solo if): <br><br>
+
+        if( a > b ) <br>
+        { <br>
+          if( a > c ) <br>
+          { <br>
+              document.querySelector(“#parrafo”).innerHTML = “a es el mayor de los 3”; <br>
+          } <br>
+        } <br>
+      Crear las variables, asignarles valores y probar la nueva solución.</small></p>
+
+    <pre>El valor de las variables es el siguiente:
+                                            a = 20
+                                            b = 10
+                                            c = 5
+Para mostrar el resultado presionar el boton
+    </pre>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej15.html">Ejercicio Anterior (Ej15)</a><br><br>
+    
+    <a href="./Ej17.html">Siguiente ejercicio (Ej17)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        let a = 20;
+        let b = 10;
+        let c = 5;
+
+        (a > b) && (a > c) ? mostrar.innerHTML = `a es el mayor de los 3` : mostrar.innerHTML = `a no es el mayor` ;
+
+    });
+
+</script>
+</html>

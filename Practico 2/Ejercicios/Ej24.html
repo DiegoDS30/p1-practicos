@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 24</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 24</h1>
+
+    <p><small>⭐⭐Se van ingresando los sueldos de los empleados de una empresa y se quiere: <br>
+        1. Obtener el total de los sueldos a pagar. <br>
+        2. Saber cuántos empleados cobrarán este mes. <br>
+        3. Mostrar el valor del sueldo más bajo </small></p>
+
+    <label for="nbrNumero">Ingrese el sueldo a pagar </label>
+    <input type="number" id="nbrNumero" min="1"><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrarTotal">Total de los sueldos: </p>
+    <p id="pMostrarEmpleados">Empleados que cobrarán este mes: </p>
+    <p id="pMostrarBajo">Sueldo mas bajo: </p>
+
+    <hr>
+
+    <a href="./Ej23.html">Ejercicio Anterior (Ej23)</a><br><br>
+    
+    <a href="./Ej25.html">Siguiente ejercicio (Ej25)</a>
+    
+    
+</body>
+<script>
+
+    let total = 0;
+    let contador = 0;
+    let sueldoMin = 0;
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let mostrarTotal = document.getElementById ('pMostrarTotal');
+        let mostrarEmpleados = document.getElementById ('pMostrarEmpleados');
+        let mostrarBajo = document.getElementById ('pMostrarBajo');
+        
+        contador++;
+        total += numero;
+
+        contador == 1 ? sueldoMin = numero : sueldoMin;
+        numero < sueldoMin ? sueldoMin = numero : sueldoMin;
+
+        mostrarTotal.innerHTML = `Total de los sueldos: $${total}`;
+        mostrarEmpleados.innerHTML = `Empleados que cobrarán este mes: ${contador}`;
+        mostrarBajo.innerHTML = `Sueldo mas bajo: $${sueldoMin}`;
+
+    });
+
+</script>
+</html>

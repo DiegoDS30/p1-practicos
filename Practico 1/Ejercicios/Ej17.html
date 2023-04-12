@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 1 - Ej17</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a><br>
+
+    <hr>
+
+    <h1>Ejercicio 17</h1>
+
+    <p><small>Utilizando la ley de Dolbear ingresar los chirridos por minuto de un grillo y calcular la temperatura actual. <br><br>
+        
+              <img src="../imgs/ej171.png" alt="Ley de Dolbear"><br><br>
+
+              El resultado obtenido estará en Fahrenheit por lo que una vez obtenido el resultado se deberá mostrar pero además convertir a grados Celsius para también mostrarlo. <br><br>
+
+              <img src="../imgs/ej172.png" alt="F a C"><br><br>
+
+              También se puede hacer el cálculo directamente en celsius <br><br>
+
+              <img src="../imgs/ej173.png" alt="Directo en C"><br><br>
+
+              N60 es el número de chirridos por minuto. Se sugiere hacer el cálculo en Fahrenheit y convertirlo a Celsius para luego hacer el cálculo directamente en Celsius y ver si coinciden.
+              La coincidencia no será exacta, pero sí debe ser muy cercana. 
+    </small></p>
+
+    <label for="nbrValor1">Chirridos por minuto: </label>
+    <input type="number" id="nbrValor1"><br><br>
+
+    <input type="button" value="Calcular" id="btnCalcular">
+
+    <p id="mostrarResultadoF">Resultado en Fahrenheit: 0</p>
+
+    <p id="mostrarResultadoFtC">De Fahrenheit a Celsius: 0</p>
+
+    <p id="mostrarResultadoC">Resultado en Celsius: 0</p>
+
+    <hr>
+
+    <a href="./Ej16.html">Ejercicio anterior (Ejercicio 16)</a><br><br>
+    
+</body>
+
+<script>
+
+let chirridos = 0;
+let dolbearFar = 0;
+let celsius = 0;
+let dolbearCel = 0;
+
+document.getElementById ('btnCalcular').addEventListener ('click', () => {
+
+    let valor1 = document.getElementById ('nbrValor1').valueAsNumber;
+
+    chirridos = valor1 * 60;
+
+    dolbearF = 50 + ((chirridos - 40) / 4);
+
+    celsius = (dolbearF - 32) / 1.8;
+
+    dolbearCel = 10 + ((chirridos - 40) / 7)
+
+    document.getElementById ('mostrarResultadoF').innerHTML = `Resultado en Fahrenheit: ${dolbearF}`;
+    document.getElementById ('mostrarResultadoFtC').innerHTML = `Resultado en Fahrenheit: ${celsius.toFixed(3)}`;
+    document.getElementById ('mostrarResultadoC').innerHTML = `Resultado en Fahrenheit: ${dolbearCel.toFixed(3)}`;
+
+});
+
+</script>
+
+</html>

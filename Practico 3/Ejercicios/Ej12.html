@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 12</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 12</h1>
+
+    <p><small>⭐⭐ Ingresar un número y calcular su factorial. <br><br>
+        <img src="../imgs/ej1.png" alt="Factorial de 5"> <br><br>
+        El factorial de un entero positivo n, el factorial de n o n factorial se define en principio como el producto de todos los números enteros positivos desde 1 (es decir, los números naturales) hasta n.
+    </small></p>
+
+    <label for="nbrNumero">Ingrese un numero: </label>
+    <input type="number" id="nbrNumero" min="2" max="50"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar">Factorial del numero ingresado: </p>
+
+    <hr>
+    
+    <a href="./Ej11.html">Ejercicio anterior (Ej11)</a><br><br>
+
+    <a href="./Ej13.html">Siguiente ejercicio (Ej13)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+        let factorial = 1;
+
+        for (let i = 1; i <= numero; i++) {
+
+            factorial *= i; 
+
+        }
+
+        mostrar.innerHTML = `Factorial del numero ingresado: ${factorial}`;
+
+    });
+
+</script>
+</html>

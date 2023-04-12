@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 15</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 15</h1>
+
+    <p><small>⭐ Ingresar un código de departamento y mostrar en un párrafo el nombre del departamento que le corresponde. <br>
+        A - Canelones <br>
+        B - Maldonado <br>
+        C - Rocha <br>
+        D - Treinta y Tres <br>
+        E - Cerro Largo <br>
+        F - Rivera <br>
+        G - Artigas <br>
+        H - Salto <br>
+        I - Paysandú <br>
+        J - Rio Negro <br>
+        K - Soriano <br>
+        L - Colonia <br>
+        M - San José <br>
+        N - Flores <br>
+        O - Florida <br>
+        P - Lavalleja <br>
+        Q - Durazno <br>
+        R - Tacuarembó <br>
+        S - Montevideo</small></p>
+
+    <label for="txtCodigo">Ingrese sus millas</label>
+    <input type="number" id="txtCodigo" maxlength="1"><br><br>
+
+    <input type="button" value="Enviar" id="btnEnviar">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+
+    <a href="./Ej14.html">Ejercicio Anterior (Ej14)</a><br><br>
+    
+    <a href="./Ej16.html">Siguiente ejercicio (Ej16)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let codigo = document.getElementById ('txtCodigo').value.toLowerCase();
+        let mostrar = document.getElementById ('pMostrar');
+
+        switch (codigo) {
+            case 'a': mostrar.innerHTML = `Canelones`;
+                break;
+            case 'b': mostrar.innerHTML = `Maldonado`;
+                break;
+            case 'c': mostrar.innerHTML = `Rocha`;
+                break;
+            case 'd': mostrar.innerHTML = `Treinta y tres`;
+                break;
+            case 'e': mostrar.innerHTML = `Cerro Largo`;
+                break;
+            case 'f': mostrar.innerHTML = `Rivera`;
+                break;
+            case 'g': mostrar.innerHTML = `Artigas`;
+                break;
+            case 'h': mostrar.innerHTML = `Salto`;
+                break;
+            case 'i': mostrar.innerHTML = `Paysandu`;
+                break;
+            case 'j': mostrar.innerHTML = `Rio Negro`;
+                break;
+            case 'k': mostrar.innerHTML = `Soriano`;
+                break;
+            case 'l': mostrar.innerHTML = `Colonia`;
+                break;
+            case 'm': mostrar.innerHTML = `San Jose`;
+                break;
+            case 'n': mostrar.innerHTML = `Flores`;
+                break;
+            case 'o': mostrar.innerHTML = `Florida`;
+                break;
+            case 'p': mostrar.innerHTML = `Lavalleja`;
+                break;
+            case 'q': mostrar.innerHTML = `Durazno`;
+                break;
+            case 'r': mostrar.innerHTML = `Tacuarembo`;
+                break;
+            case 's': mostrar.innerHTML = `Montevideo`;
+                break;
+            default: mostrar.innerHTML = `Ingresar un codigo correcto`;
+                break;
+        }
+
+    });
+
+</script>
+</html>

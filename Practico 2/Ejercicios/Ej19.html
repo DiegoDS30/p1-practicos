@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Ejercicio 19</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 19</h1>
+
+    <p><small>⭐⭐ Ingresar cinco números. Indicar cuántos son múltiplos de 5, cuantos son mayores que 20 y cuantos cumplieron ambas condiciones en simultáneo. <br>
+        La solución deberá utilizar un único campo de texto y un único botón</small></p>
+
+    <label for="nbrNumero">Ingrese un numero</label>
+    <input type="number" id="nbrNumero"><br><br>
+
+    <input type="button" value="Mostrar" id="btnEnviar">
+
+    <p id="pMostrarMult">Multiplos de 5: </p>
+    <p id="pMostrarMayores">Mayores a 20: </p>
+    <p id="pMostrarAmbos">Ambos: </p>
+
+    <hr>
+
+    <a href="./Ej18.html">Ejercicio Anterior (Ej18)</a><br><br>
+    
+    <a href="./Ej20.html">Siguiente ejercicio (Ej20)</a>
+    
+    
+</body>
+<script>
+
+    let mostrarMult = document.getElementById ('pMostrarMult');
+    let mostrarMayores = document.getElementById ('pMostrarMayores');
+    let mostrarAmbos = document.getElementById ('pMostrarAmbos');
+    let contador = 0;
+    let contAmbos = 0;
+    let contMult = 0;
+    let contMayor = 0;
+
+    document.getElementById ('btnEnviar').addEventListener ('click', () => {
+
+        let numero = document.getElementById ('nbrNumero').valueAsNumber;
+
+        if (contador < 5) {
+
+            if ((numero % 5) == 0 && numero > 20) {
+
+                contAmbos++;
+                contMult++;
+                contMayor++;
+
+            } else if ((numero % 5) == 0) {
+
+                contMult++;
+
+            } else if (numero > 20) {
+
+                contMayor++;
+
+            }
+
+            contador++;
+
+        } else {
+
+            mostrarMult.innerHTML = `Multiplos de 5: ${contMult}`;
+            mostrarMayores.innerHTML = `Mayores a 20: ${contMayor}`;
+            mostrarAmbos.innerHTML = `Ambos: ${contAmbos}`;
+
+        }
+
+    });
+
+</script>
+</html>
