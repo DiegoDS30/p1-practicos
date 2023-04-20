@@ -41,10 +41,17 @@
         mostrar.innerHTML = ``;
         let numero = document.getElementById ('nbrNumero').valueAsNumber;
 
-        for (let i = 1; i <= numero; i++) {
+        if (numero < 2 || numero > 50) {
 
-            mostrar.innerHTML += `-`
+            mostrar.innerHTML = `Por favor ingrese un numero entre 2 y 50`
 
+        } else {
+
+            for (let i = 1; i <= numero; i++) {
+
+                mostrar.innerHTML += `-`
+
+            }
 
         }
 
