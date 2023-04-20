@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <title>Practico 3 - Ejercicio 10</title>
+</head>
+<body>
+
+    <a href="../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 10</h1>
+
+    <p><small>⭐⭐ Pedir dos números y mostrar el producto de los números comprendidos entre ellos (inclusive). Sólo se realizarán pruebas donde el primer número sea menor al segundo, no es necesario controlarlo.</small></p>
+
+    <label for="nbrNumero1">Ingrese el primer numero: </label>
+    <input type="number" id="nbrNumero1"><br><br>
+
+    <label for="nbrNumero2">Ingrese el segundo numero: </label>
+    <input type="number" id="nbrNumero2"><br><br>
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+
+    <p id="pMostrar"></p>
+
+    <hr>
+    
+    <a href="./Ej9.html">Ejercicio anterior (Ej9)</a><br><br>
+
+    <a href="./Ej11.html">Siguiente ejercicio (Ej11)</a>
+    
+    
+</body>
+<script>
+
+    document.getElementById ('btnImprimir').addEventListener ('click', () => {
+
+        let mostrar = document.getElementById ('pMostrar');
+        let numero1 = document.getElementById ('nbrNumero1').valueAsNumber;
+        let numero2 = document.getElementById ('nbrNumero2').valueAsNumber;
+
+        let resultado = 1;
+
+        for (let i = numero1; i <= numero2; i++) {
+
+            resultado *= i;
+
+        }
+
+        mostrar.innerHTML = `El producto es: ${resultado}`
+
+    });
+
+</script>
+</html>
