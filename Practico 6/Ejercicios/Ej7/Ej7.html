@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <script src="./main.js" defer></script>
+    <title>Practico 6 - Ejercicio 7</title>
+</head>
+<body>
+
+    <a href="../../index.html">Volver al inicio</a>
+
+    <hr>
+    
+    <h1>Ejercicio 7</h1>
+
+    <p><small>⭐⭐ a) Crear un campo de texto y un botón para ingresar nombres a un array. 
+        Con cada ingreso mostrar todos los elementos, 
+        uno por línea y al final mostrar la cantidad de elementos que tiene el array. <br><br>
+
+        b) Crear un nuevo campo de texto y otro botón para ingresar en el campo de texto 
+        un número de posición y mostrar en un párrafo el elemento que se encuentra 
+        en esa posición. Además en otro párrafo mostrar el último elemento del array. <br><br>
+        
+        c) Crear dos campos de texto para nombre a buscar y nuevo nombre 
+        y al presionar un botón buscar si ese elemento existe y 
+        en caso que exista sustituir el elemento buscado por el nuevo, 
+        sino informar que no existe ese elemento, 
+        en ese caso el nombre nuevo no se utilizará.</small></p>
+
+    <label for="txtNombre">Ingrese los nombres</label>
+    <input type="text" id="txtNombre"><br><br>
+
+    <input type="button" value="Ingresar" id="btnIngresar"><br>
+
+    <p id="pNombres"></p>
+
+    <hr><br>
+
+    <label for="nbrPosicion">Ingrese la posicion a buscar</label>
+    <input type="number" id="nbrPosicion"><br><br>
+
+    <input type="button" value="Buscar" id="btnBuscar"><br>
+
+    <p id="pPosicion"></p>
+    <p id="pUltimo"></p>
+
+    <hr><br>
+
+    <label for="txtNombreBuscar">Ingrese el nombre a buscar</label>
+    <input type="text" id="txtNombreBuscar"><br><br>
+
+    <label for="txtSustituir">Ingrese el nombre para sustituir</label>
+    <input type="text" id="txtSustituir"><br><br>
+
+    <input type="button" value="Sustituir" id="btnSustituir">
+
+    <p id="pSustituir"></p>
+
+    <hr>
+
+    <a href="../Ej6/Ej6.html">Ejercicio anterior (Ej6)</a><br><br>
+    
+    <a href="../Ej8/Ej8.html">Siguiente ejercicio (Ej8)</a>
+
+</body>
+</html>
