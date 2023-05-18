@@ -1,34 +1,35 @@
-let repetidosInput = document.getElementById ('txtRepetidos');
 let botonIngresar = document.getElementById ('btnIngresar');
-let botonReducir = document.getElementById ('btnReducir');
+let botonEliminar = document.getElementById ('btnEliminar');
 let mostrar = document.getElementById ('pMostrar');
+let inputEliminar = document.getElementById ('txtEliminar');
 
-let repArr = [];
+let eliminar = []
 
-botonIngresar.addEventListener ('click', function () {ingresarArr (repetidosInput.value)});
-botonReducir.addEventListener ('click', reducirArr);
+botonIngresar.addEventListener ('click', function () { agrearArr (eliminar, inputEliminar.value) });
+botonEliminar.addEventListener ('click', function () { eliminarDelArr (eliminar, inputEliminar.value) });
 
-function ingresarArr (char) {
+function agrearArr (arr, str) {
 
-    repArr.push (char);
+    arr.push (str);
 
-    repetidosInput.value = '';
-    repetidosInput.focus ();
-
-    return mostrar.innerHTML = `Actualmente en el array: ${repArr}`;
+    return mostrar.innerHTML = `Actualmente en el array: ${arr}`
 
 }
 
-function reducirArr () {
+function eliminarDelArr (arr, str) {
 
-    repArr = [... new Set (repArr)];
+    let index = arr.indexOf (str)
 
-    // sin Set
-    // repArr = repArr.filter ((repetido, index, arr) => arr.indexOf(repetido) === index);
-    // Con filter loopeamos el array dejamos solo los valores que pasan la CB function
-    // la cual se fija si el valor es la primera vez que aparece, si no es duplicado
-    // y no lo devuelve
+    if (index > -1) {
 
-    return mostrar.innerHTML = `Actualmente en el array: ${repArr}`;
+        arr.splice (index, 1);
+
+        return mostrar.innerHTML = `Actualmente en el array: ${arr}`
+
+    } else {
+
+        return mostrar.innerHTML = `El elemento no existe en el array, los elementos que tiene son: ${arr}`
+
+    }
 
 }

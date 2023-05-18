@@ -1,28 +1,32 @@
-let mayoresInput = document.getElementById ('nbrMayores');
 let botonIngresar = document.getElementById ('btnIngresar');
 let botonMostrar = document.getElementById ('btnMostrar');
 let mostrar = document.getElementById ('pMostrar');
+let nombresMostrar = document.getElementById ('pNombres');
+let caracterInput = document.getElementById ('txtCaracter');
 
-let numerosArr = [];
+let nombreMascotas = ['Temmito', 'Apollo', 'Lady', 'Elliot', 'Simon', 'Rex', 'Apa', 'Oliver'];
 
-botonIngresar.addEventListener ('click', function () {ingresarArr (mayoresInput.valueAsNumber)});
-botonMostrar.addEventListener ('click', mayorIgualArr);
+nombresMostrar.innerHTML = `Los nombres son "${nombreMascotas}"`;
 
-function ingresarArr (num) {
+botonIngresar.addEventListener ('click', function () { buscarNombres (nombreMascotas, caracterInput.value) });
+botonMostrar.addEventListener ('click', function () { nombresLen (nombreMascotas) });
 
-    numerosArr.push (num);
+function buscarNombres (arr, char) {
 
-    mayoresInput.value = '';
-    mayoresInput.focus ();
+    let nombresEncontrados = arr.filter (nom => nom.endsWith (char));
 
-    return mostrar.innerHTML = `Actualmente en el array: ${numerosArr}`;
+    return mostrar.innerHTML = `Los nombres que terminan con la letra son: "${nombresEncontrados}"`
 
 }
 
-function mayorIgualArr () {
+function nombresLen (arr) {
 
-    numerosArr = numerosArr.filter (num => num >= numerosArr [0]);
+    let nombresLargos = arr.filter (nom => nom.length >= 7)
 
-    return mostrar.innerHTML = `Actualmente en el array: ${numerosArr}`;
+    let minimo = arr.reduce ((corto, nombre) => corto.length <= nombre.length ? corto : nombre).length;
+
+    let nombresCortos = arr.filter (mascotas => mascotas.length === minimo);
+
+    return mostrar.innerHTML = `Los nombres con mas de 7 caracteres son: "${nombresLargos}", los nombres mas cortos son: "${nombresCortos}"`
 
 }

@@ -16,19 +16,20 @@
     
     <h1>Ejercicio 10</h1>
 
-    <p><small>⭐⭐⭐ Crear una función que reciba como parámetro un array y 
-        devuelva el array, pero sin elementos repetidos. <br>
-        Para el array ["a","b","c","b","d","a","e","c","c"] 
-        se deberá devolver el array ["a", "b", "c", "d", "e"]</small></p>
+    <p><small>⭐⭐Crear un campo de texto y dos botones. 
+        Al presionar el primer botón se agregará a un array el contenido del campo de texto. 
+        Al presionar el segundo botón se buscará lo escrito en el campo de texto 
+        en el array y si ese texto existe en el array se eliminará, 
+        sino se dará aviso de error. En todos los casos, mostrar el array resultante.</small></p>
 
-    <label for="txtRepetidos">Ingrese elementos al array</label>
-    <input type="text" id="txtRepetidos" maxlength="1" minlegth="1"><br><br>
+    <label for="txtEliminar">Ingrese elementos al array</label>
+    <input type="text" id="txtEliminar"><br><br>
 
     <input type="button" value="Ingresar" id="btnIngresar"><br><br>
 
-    <input type="button" value="Reducir" id="btnReducir"><br>
+    <input type="button" value="Eliminar" id="btnEliminar"><br>
 
-    <p id="pMostrar">Actualmente en el array: </p>
+    <p id="pMostrar"></p>
 
     <hr>
 
