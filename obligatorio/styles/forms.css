@@ -1,0 +1,35 @@
+.formulario-ingreso,
+.formulario-registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 15rem;
+}
+
+.input-caja {
+    padding: 1rem 1rem;
+}
+
+.input-caja input {
+    height: 100%;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding: 0.4rem 5px;
+    font-size: 0.9rem;
+    border: 1.5px solid #C7BEBE;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.input-caja input:focus {
+    border-color: #4070f4;
+}
+
+.input-caja.boton input {
+    background-color: #A7ABDD;
+    letter-spacing: 1px;
+    border: none;
+    color: #E9E7EE;
+    cursor: pointer;
+}

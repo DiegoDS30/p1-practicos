@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&family=Open+Sans&family=Spinnaker&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0px 12rem;
+}
+
+/* Barra de navegacion - INICIO */
+
+header {
+    padding: 1rem;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-logo {
+    margin: 0rem 5rem;
+}
+
+#nav-links {
+    margin: 0rem 6rem;
+}
+
+#censo-logo {
+    height: 6rem;
+    width: auto;
+}
+
+ul.links {
+    font-size: 1.2rem;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul.links a {
+    text-decoration: none;
+    padding: 1rem;
+    color: rgb(105, 105, 105);
+    transition: color 0.3s ease;
+}
+
+li a:hover {
+    color:#333;
+}
+
+/* Barra de navegacion - FIN */
+
+/* Main - INICIO*/
+
+.censistas-menu a {
+    text-decoration: none;
+    color: rgb(105, 105, 105);
+    transition: color 0.3s ease;
+}
+
+.censistas-menu a:hover {
+    color: #333;
+}
+
+/* Main - FIN*/
+
+/* Footer - INICIO */
+
+footer {
+    margin-top: auto;
+}
+
+.footer {
+    margin: 4rem 0rem;
+}
+
+/* Footer - FIN */
