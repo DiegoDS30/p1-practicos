@@ -64,6 +64,13 @@ li a:hover {
 
 /* Main - INICIO*/
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .censistas-menu a {
     text-decoration: none;
     color: rgb(105, 105, 105);
@@ -87,3 +94,13 @@ footer {
 }
 
 /* Footer - FIN */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type=number] {
+    -moz-appearance: textfield;
+}

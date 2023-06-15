@@ -1,0 +1,28 @@
+{
+"censistas": [
+    { 
+        "id": 12,
+        "nombre": "test",
+        "usuario": "user",
+        "pass": "xdxd"
+    },
+    {
+        "id": 34,
+        "nombre": "test 2",
+        "usuario": "admin",
+        "pass": "admin"
+    }
+    ],
+"invitados": [
+    {
+        "nombre": "Diego",
+        "apellido": "da Silva",
+        "edad": 25,
+        "cedula": 48081939,
+        "departamento": 1,
+        "ocupacion": 1,
+        "censita": 34,
+        "censado?": true
+    }
+]
+}

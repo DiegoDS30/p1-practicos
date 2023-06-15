@@ -22,13 +22,13 @@
             <nav id="nav-links">
                 <ul class="links">
                     <li>
-                        <a href="./index.html">Inicio</a>
+                        <a href="../index.html">Inicio</a>
                     </li>
                     <li>
-                        <a href="">Complete su censo!</a>
+                        <a href="../censo-formulario.html">Complete su censo!</a>
                     </li>
                     <li>
-                        <a href="./ingreso-censistas.html">Ingreso Censistas</a>
+                        <a href="#">Ingreso Censistas</a>
                     </li>
                     <li>
                         <a href="https://censo2023.uy/">Sitio oficial del Censo 2023</a>
@@ -41,55 +41,29 @@
 
     <main>
 
-        <div class="formulario-registro">
+        <div class="formulario-ingreso">
 
-            <h2>Registrese como censista!</h2>
+            <h2>Ingrese a su usuario</h2>
 
-            <form action="" id="registro">
+            <form action="" id="ingreso" autocomplete="off">
 
-
-                <div class="input-nombre">
-                    <div class="input-caja">
-
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" id="txtNombre" placeholder="Diego" required>
-                    </div>
-                    <div class="input-caja">
-                        <label for="txtApellido">Apellido</label>
-                        <input type="text" id="txtApellido" placeholder="da Silva" required>
-                    </div>
+                <div class="input-caja">
+                    <label for="txtUsuario">Usuario</label>
+                    <input type="text" id="txtUsuario" required>
                 </div>
 
                 <div class="input-caja">
-
-                    <label for="txtUsuario">Nombre de usuario</label>
-                    <input type="text" id="txtUsuario" placeholder="DiegoDS30" required>
-
-                </div>
-
-                <div class="input-caja">
-
-                    <label for="txtPass">Contraseña *</label>
+                    <label for="txtPass">Contraseña</label>
                     <input type="password" id="txtPass" required>
-
                 </div>
-
-                <div class="input-caja">
-
-                    <label for="txtPassConfirm">Confirme su contraseña *</label>
-                    <input type="password" id="txtPassConfirm">
-
-                </div>
-
-                <small>* Minimo cinco caracteres, por lo menos una mayuscula y una minuscula y un numero</small>
 
                 <div class="input-caja boton">
-                    <input type="submit" value="Registrarse">
+                    <input type="submit" value="Iniciar sesion">
                 </div>
 
             </form>
 
-            <p>Ya cuenta con un usuario? <a href="./ingreso-censistas.html">Ingrese!</a></p>
+            <p>No cuenta con usuario aun? <a href="./registro-censistas.html">Registrarse!</a></p>
 
         </div>
 
@@ -108,6 +82,6 @@
         </div>
 
     </footer>
-    
+
 </body>
 </html>

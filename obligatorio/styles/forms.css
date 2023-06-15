@@ -7,6 +7,11 @@
     margin: 1rem 15rem;
 }
 
+form {
+    width: 50%;
+    margin-top: 2rem;
+}
+
 .input-caja {
     padding: 1rem 1rem;
 }
@@ -20,16 +25,33 @@
     border: 1.5px solid #C7BEBE;
     border-radius: 4px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .input-caja input:focus {
     border-color: #4070f4;
 }
 
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .input-caja.boton input {
+    width: 60%;
     background-color: #A7ABDD;
     letter-spacing: 1px;
     border: none;
     color: #E9E7EE;
     cursor: pointer;
+}
+
+input:disabled {
+    background-color: rgba(128, 128, 128, 0.103);
+}
+
+input:invalid {
+    outline: red;
 }
