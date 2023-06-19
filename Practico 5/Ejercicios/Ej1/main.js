@@ -10,6 +10,16 @@ imprimirBoton.addEventListener ('click', function () {
 
 function invertirTexto (str) {
 
-    return str.split ('').reverse().join ('');
+    let textoInvertido = "";
+
+    for (let i = str.length - 1; i >= 0; i--){
+
+        textoInvertido += str.charAt(i);
+
+    }
+    
+    return textoInvertido;
+
+    // return str.split ('').reverse().join ('');
 
 }

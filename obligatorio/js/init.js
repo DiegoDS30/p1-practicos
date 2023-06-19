@@ -1,16 +1,14 @@
-const PASS_REGEX = new RegExp (/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{5,}$/);
+const PASS_REGEX = new RegExp (/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,}$/);
 const DATOS = '../datos/db.json';
 
-async function Traer_datos (destino, tipo_user) {
+let sistema = new Sistema ();
 
-    let datos = []
+function nuevo_usuario_censista (id, nombre, usuario, pass) {
+    let censista_nuevo = new Censista (id, nombre, usuario, pass);
+    sistema.agregar_censista (censista_nuevo);
+}
 
-    fetch (destino)
-        .then (res => res.json())
-        .then (data => {
-            datos = data.tipo_user;
-        })
-
-    return datos
-
+function nuevo_usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censita, censado) {
+    let usuario_nuevo = new Usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censita, censado);
+    sistema.agregar_invitado (usuario_nuevo);
 }

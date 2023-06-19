@@ -6,25 +6,17 @@ let pass_confirm = document.getElementById ('txtPassConfirm');
 let registro_form = document.getElementById ('registro');
 let confirmacion = document.getElementById ('pConfirmacion');
 
-// let datos_censistas = Traer_datos (DATOS, censistas) no funca jeje
-
-let datos_censistas = []
-
-fetch (DATOS)
-    .then (res => res.json())
-    .then (data => { 
-        datos_censistas = data.censistas;
-});
+let datos_censistas = sistema.censistas || [];
 
 registro_form.addEventListener ('submit', (e) => {
 
     e.preventDefault();
 
-    if (nombre.value && apellido.value && usuario.value && pass.value && pass_confirm.value) {
+    if (nombre.value && apellido.value && usuario.value && pass.value && pass_confirm.value) { // Que todos los campos esten llenos
 
-        if (PASS_REGEX.test (pass.value)) {
+        if (PASS_REGEX.test (pass.value)) { // La contraseña tiene que cumplir con los estandares
 
-            if (pass.value == pass_confirm.value) {
+            if (pass.value == pass_confirm.value) { // Las contraseñas tienen que coincidir
 
                 let id_censista_nuevo = Math.floor(Math.random() * (100000 - 1 + 1) + 1); // numero random del 1 al 100000
 
@@ -36,24 +28,17 @@ registro_form.addEventListener ('submit', (e) => {
 
                 }
 
-                // Cuando ya haya una id nueva, generamos el nuevo censista con los datos ingresados
+                // Cuando ya haya una id nueva unica, generamos el nuevo censista con los datos ingresados
 
-                let nuevo_censista = {
-                    id: id_censista_nuevo,
-                    nombre: `${nombre.value} ${apellido.value}`,
-                    usuario: usuario.value,
-                    pass: pass.value
-                }
+                nuevo_usuario_censista (id_censista_nuevo, `${nombre.value} ${apellido.value}`, usuario.value, pass.value);
 
-                fetch(DATOS, {
-                    method: "POST",
-                    body: nuevo_censista,
-                    headers: {
-                        "Content-type": "application/json"
-                    }
-                });
-        
-                datos_censistas.push(nuevo_censista);
+                nombre.value = '';
+                apellido.value = '';
+                usuario.value = '';
+                pass.value = '';
+                pass_confirm.value = '';
+
+                confirmacion.innerHTML = 'Te has registrado con exito!! <a href="./ingreso-censistas.html">Ingresa</a> ahora!'
     
             } else {
     
@@ -71,13 +56,16 @@ registro_form.addEventListener ('submit', (e) => {
 
 });
 
-/* Funcion para verificar que no exista ya un censista con la id generada
-   @param datos - un array
-   @param id - la id a buscar
-*/
+
+/**
+ * La funcion busca si ya existe una ID en un array de objetos.
+ * @param datos - el parametro "datos" es un array de objetos
+ * @param id - el parametro "id" es un valor que representa el identificador de un objeto.
+ * Se usa en la funcion para comprobar si existe un objeto en el array "datos"
+ * que tenga el mismo identificador que el pasado como argumento.
+ * @returns un valor booleano que indica si existe un objeto en el array "datos" que tenga una propiedad "id"
+ */
 
 function Verificar_id (datos, id) {
-
     return datos.some (dato => dato.id === id);
-
 }

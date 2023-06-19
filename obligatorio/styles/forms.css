@@ -52,6 +52,10 @@ input:disabled {
     background-color: rgba(128, 128, 128, 0.103);
 }
 
+input[type="button"]:disabled {
+    background-color: #5d607ee5;
+}
+
 input:invalid {
     outline: red;
 }
