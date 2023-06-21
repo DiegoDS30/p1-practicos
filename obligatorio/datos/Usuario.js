@@ -69,4 +69,22 @@ class Sistema {
     
     }
 
+    Buscar_invitado (ci) {
+    
+        return this.invitados.find (invitado => invitado.cedula === ci);
+
+    }
+
+    Actualizar_invitado (upd) {
+
+        let invitado_temp = upd
+        let invitado_a_cambiar = this.invitados.findIndex (invitado => invitado.cedula === invitado_temp.cedula);
+
+        this.invitados [invitado_a_cambiar] = invitado_temp;
+        console.log (this.invitados[invitado_a_cambiar]);
+
+        localStorage.setItem ('invitados', JSON.stringify (this.invitados));
+
+    }
+
 }

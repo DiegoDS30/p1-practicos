@@ -86,7 +86,6 @@
                         <label for="sltDepartamento-censo">Departamento</label>
                         <select id="sltDepartamento-censo"required>
                             <option value="0" disabled selected>Departamento</option>
-                            <option value="1">Montevideo</option>
                         </select>
                     </div>
     
@@ -94,10 +93,6 @@
                         <label for="sltOcupacion-censo">Ocupacion</label>
                         <select id="sltOcupacion-censo" required>
                             <option value="0" disabled selected>Ocupacion</option>
-                            <option value="1">Dependiente</option>
-                            <option value="2">Independiente</option>
-                            <option value="3">Estudiante</option>
-                            <option value="4">No trabaja</option>
                         </select>
                     </div>
 
@@ -117,59 +112,56 @@
 
                     <div class="input-caja">
                         <label for="nbrBuscarCedula">Ingrese la cedula de la persona</label>
-                        <input type="number" id="nbrBuscarCedula" required>
+                        <input type="text" id="nbrBuscarCedula" required>
                     </div>
         
                     <div class="input-caja boton">
-                        <input type="button" value="Buscar!">
+                        <input type="button" value="Buscar!" id="btnBuscar">
                     </div>
     
-                    <p id="pEstado"></p>
+                    <p id="pAviso-buscar"></p>
 
                 </div>
 
                 <form action="" id="censo-confirmar" autocomplete="off">
                     <div class="input-caja">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" id="txtNombre" required disabled>
+                        <label for="txtNombre-cargado">Nombre</label>
+                        <input type="text" id="txtNombre-cargado" class="habilitar" required disabled>
                     </div>
     
                     <div class="input-caja">
-                        <label for="txtApellido">Apellido</label>
-                        <input type="text" id="txtApellido" required disabled>
+                        <label for="txtApellido-cargado">Apellido</label>
+                        <input type="text" id="txtApellido-cargado" class="habilitar" required disabled>
                     </div>
     
                     <div class="input-caja">
-                        <label for="nbrEdad">Edad</label>
-                        <input type="number" id="nbrEdad" min="0" max="130" required disabled>
+                        <label for="nbrEdad-cargado">Edad</label>
+                        <input type="text" id="nbrEdad-cargado" min="0" max="130" class="habilitar" required disabled>
                     </div>
     
                     <div class="input-caja">
-                        <label for="nbrCedula">Cedula</label>
-                        <input type="number" id="nbrCedula" required disabled>
+                        <label for="nbrCedula-cargado">Cedula</label>
+                        <input type="text" id="nbrCedula-cargado" class="habilitar" required disabled>
                     </div>
     
                     <div class="input-caja select">
-                        <label for="sltDepartamento">Departamento</label>
-                        <select id="sltDepartamento" required disabled>
-                            <option value="0">Departamento</option>
-                            <option value="1">Montevideo</option>
+                        <label for="sltDepartamento-cargado">Departamento</label>
+                        <select id="sltDepartamento-cargado" class="habilitar" required disabled>
+                            <option value="0" disabled selected>Departamento</option>
                         </select>
                     </div>
     
                     <div class="input-caja select">
-                        <label for="sltOcupacion">Ocupacion</label>
-                        <select id="sltOcupacion" required disabled>
-                            <option value="0">Ocupacion</option>
-                            <option value="1">Dependiente</option>
-                            <option value="2">Independiente</option>
-                            <option value="3">Estudiante</option>
-                            <option value="4">No trabaja</option>
+                        <label for="sltOcupacion-cargado">Ocupacion</label>
+                        <select id="sltOcupacion-cargado" class="habilitar" required disabled>
+                            <option value="0" disabled selected>Ocupacion</option>
                         </select>
                     </div>
+
+                    <p id="pAviso-cargado"></p>
     
                     <div class="input-caja boton">
-                        <input type="submit" value="Enviar Censo!" disabled>
+                        <input type="submit" value="Confirmar Censo!" id="btnConfirmar" class="habilitar" disabled>
                     </div>
                 </form>
 

@@ -49,7 +49,6 @@ label {
     letter-spacing: 1px;
     border: none;
     color: #E9E7EE;
-    cursor: pointer;
 }
 
 select {
@@ -62,6 +61,10 @@ select {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+select:disabled {
+    cursor: not-allowed;
 }
 
 option {
@@ -81,14 +84,16 @@ option:focus {
 
 input:disabled {
     background-color: rgba(128, 128, 128, 0.103);
+    cursor: not-allowed;
 }
 
-input[type="button"]:disabled {
+.input-caja.boton:disabled {
     background-color: #5d607ee5;
 }
 
-.input-caja.boton input:hover {
+.input-caja.boton input:hover:not(:disabled){
     background-color: #5d607e;
+    cursor: pointer;
 }
 
 input:invalid {

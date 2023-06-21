@@ -23,7 +23,7 @@ if (user != '') {
     mostrar_usuario.href = './censistas-vista.html'
     mostrar_usuario.innerHTML = `Bienvenido ${user}!`
 
-    censo.innerHTML = ''
+    censo.style.display = "none"
 
     sitio.href = './index.html'
     sitio.innerHTML = 'Salir'
