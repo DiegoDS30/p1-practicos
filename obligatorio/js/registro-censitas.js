@@ -10,13 +10,17 @@ let datos_censistas = sistema.censistas || [];
 
 registro_form.addEventListener ('submit', (e) => {
 
+    let nombre_usuario = `${nombre.value} ${apellido.value}`;
+    usuario = usuario.value;
+    usuario = usuario.toLowerCase ();
+
     e.preventDefault();
 
-    if (nombre.value && apellido.value && usuario.value && pass.value && pass_confirm.value) { // Que todos los campos esten llenos
+    if (nombre.value && apellido.value && usuario && pass.value && pass_confirm.value) { // Que todos los campos esten llenos
 
         if (PASS_REGEX.test (pass.value)) { // La contraseña tiene que cumplir con los estandares
 
-            if (pass.value == pass_confirm.value) { // Las contraseñas tienen que coincidir
+            if ((pass.value === pass_confirm.value) && !Verificar_usuario (datos_censistas, usuario)) { // Las contraseñas tienen que coincidir
 
                 let id_censista_nuevo = Math.floor(Math.random() * (100000 - 1 + 1) + 1); // numero random del 1 al 100000
 
@@ -30,7 +34,7 @@ registro_form.addEventListener ('submit', (e) => {
 
                 // Cuando ya haya una id nueva unica, generamos el nuevo censista con los datos ingresados
 
-                nuevo_usuario_censista (id_censista_nuevo, `${nombre.value} ${apellido.value}`, usuario.value, pass.value);
+                nuevo_usuario_censista (id_censista_nuevo, nombre_usuario, usuario, pass.value);
 
                 nombre.value = '';
                 apellido.value = '';
@@ -42,7 +46,7 @@ registro_form.addEventListener ('submit', (e) => {
     
             } else {
     
-                confirmacion.innerHTML = 'Ambas contraseñas deben de coincidir'
+                confirmacion.innerHTML = 'El nombre de ususario ya existe o las contraseñas no coinciden'
     
             }
 
@@ -68,4 +72,8 @@ registro_form.addEventListener ('submit', (e) => {
 
 function Verificar_id (datos, id) {
     return datos.some (dato => dato.id === id);
+}
+
+function Verificar_usuario (datos, usuario) {
+    return datos.some (dato => dato.usuario === usuario);
 }

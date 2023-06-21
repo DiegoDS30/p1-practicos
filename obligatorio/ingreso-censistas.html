@@ -10,6 +10,7 @@
     <script src="../datos/Usuario.js" defer></script>
     <script src="../js/init.js" defer></script>
     <script src="../datos/testdb.js" defer></script>
+    <script src="../js/ingreso-censistas.js" defer></script>
     <title>Censo 2023 Uruguay</title>
 </head>
 <body class="container">
@@ -25,10 +26,10 @@
             <nav id="nav-links">
                 <ul class="links">
                     <li>
-                        <a href="../index.html">Inicio</a>
+                        <a href="./index.html">Inicio</a>
                     </li>
                     <li>
-                        <a href="../censo-formulario.html">Complete su censo!</a>
+                        <a href="./censo-formulario.html">Complete su censo!</a>
                     </li>
                     <li>
                         <a href="#">Ingreso Censistas</a>
@@ -59,6 +60,8 @@
                     <label for="txtPass">Contraseña</label>
                     <input type="password" id="txtPass" required>
                 </div>
+
+                <p id="pConfirmacion"></p>
 
                 <div class="input-caja boton">
                     <input type="submit" value="Iniciar sesion">

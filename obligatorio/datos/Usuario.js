@@ -38,6 +38,7 @@ class Sistema {
      * @param add - el parametro "add" es un objeto que representa un nuevo censista
      * a ser agregado al array de censistas y a ser guardado en local storage.
      */
+
     agregar_censista (add) {
 
         let censista_temp = add;
@@ -55,6 +56,7 @@ class Sistema {
      * @param add - el parametro "add" es un objeto que representa un nuevo invitado
      * a ser agregado al array de invitados y a ser guardado en local storage.
      */
+    
     agregar_invitado (add) {
             
         let invitado_temp = add;

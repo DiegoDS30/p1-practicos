@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diego da Silva">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/forms.css">
+    <script src="../datos/Usuario.js" defer></script>
+    <script src="../js/init.js" defer></script>
+    <script src="../datos/testdb.js" defer></script>
+    <script src="../js/censistas-vista.js" defer></script>
+    <title>Censo 2023 Uruguay</title>
+</head>
+<body class="container">
+    <header>
+        <div id="header">
+
+            <div id="header-logo">
+                <a href="../index.html">
+                    <img src="https://p1.develotion.com/2023_03/logo.jpg" alt="logo_censo" id="censo-logo">
+                </a>
+            </div>
+
+            <nav id="nav-links">
+                <ul class="links">
+                    <li>
+                        <a href="../index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a id="censo" href="./censo-formulario.html">Complete su censo!</a>
+                    </li>
+                    <li>
+                        <a id="mostrar_usuario" href="./ingreso-censistas.html">Ingreso Censistas</a>
+                    </li>
+                    <li>
+                        <a id="sitio" href="https://censo2023.uy/">Sitio oficial del Censo 2023</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <div class="censistas-menu">
+
+            <h2><a id="ingresar_persona" class="cambiar">Ingresar nueva persona</a></h2>
+            <h2><a id="consultar_censos" class="cambiar">Consultar censos</a></h2>
+            <h2><a id="reasignar_persona" class="cambiar">Reasignar persona</a></h2>
+            <h2><a id="estadisticas" class="cambiar">Estadisticas</a></h2>
+            
+        </div>
+
+        <div class="contenedor">
+
+            <div id="seccion_ingresar_persona" class="seccion">
+
+                <form action="" id="censo-censista" autocomplete="off">
+    
+                    <div class="input-caja">
+                        <label for="txtNombre-censo">Nombre</label>
+                        <input type="text" id="txtNombre-censo" required>
+                    </div>
+    
+                    <div class="input-caja">
+                        <label for="txtApellido-censo">Apellido</label>
+                        <input type="text" id="txtApellido-censo" required>
+                    </div>
+    
+                    <div class="input-caja">
+                        <label for="nbrEdad-censo">Edad</label>
+                        <input type="text" id="nbrEdad-censo" min="0" max="130" required>
+                    </div>
+    
+                    <div class="input-caja">
+                        <label for="nbrCedula-censo">Cedula *</label>
+                        <input type="text" id="nbrCedula-censo" required>
+                    </div>
+
+                    <small>* Sin puntos ni guiones, con digito verificador</small>
+    
+                    <div class="input-caja select">
+                        <label for="sltDepartamento-censo">Departamento</label>
+                        <select id="sltDepartamento-censo"required>
+                            <option value="0" disabled selected>Departamento</option>
+                            <option value="1">Montevideo</option>
+                        </select>
+                    </div>
+    
+                    <div class="input-caja select">
+                        <label for="sltOcupacion-censo">Ocupacion</label>
+                        <select id="sltOcupacion-censo" required>
+                            <option value="0" disabled selected>Ocupacion</option>
+                            <option value="1">Dependiente</option>
+                            <option value="2">Independiente</option>
+                            <option value="3">Estudiante</option>
+                            <option value="4">No trabaja</option>
+                        </select>
+                    </div>
+
+                    <p id="pAviso-censo"></p>
+    
+                    <div class="input-caja boton">
+                        <input type="submit" value="Enviar Censo!">
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div id="seccion_consultar_censos" class="seccion">
+
+                <div>
+
+                    <div class="input-caja">
+                        <label for="nbrBuscarCedula">Ingrese la cedula de la persona</label>
+                        <input type="number" id="nbrBuscarCedula" required>
+                    </div>
+        
+                    <div class="input-caja boton">
+                        <input type="button" value="Buscar!">
+                    </div>
+    
+                    <p id="pEstado"></p>
+
+                </div>
+
+                <form action="" id="censo-confirmar" autocomplete="off">
+                    <div class="input-caja">
+                        <label for="txtNombre">Nombre</label>
+                        <input type="text" id="txtNombre" required disabled>
+                    </div>
+    
+                    <div class="input-caja">
+                        <label for="txtApellido">Apellido</label>
+                        <input type="text" id="txtApellido" required disabled>
+                    </div>
+    
+                    <div class="input-caja">
+                        <label for="nbrEdad">Edad</label>
+                        <input type="number" id="nbrEdad" min="0" max="130" required disabled>
+                    </div>
+    
+                    <div class="input-caja">
+                        <label for="nbrCedula">Cedula</label>
+                        <input type="number" id="nbrCedula" required disabled>
+                    </div>
+    
+                    <div class="input-caja select">
+                        <label for="sltDepartamento">Departamento</label>
+                        <select id="sltDepartamento" required disabled>
+                            <option value="0">Departamento</option>
+                            <option value="1">Montevideo</option>
+                        </select>
+                    </div>
+    
+                    <div class="input-caja select">
+                        <label for="sltOcupacion">Ocupacion</label>
+                        <select id="sltOcupacion" required disabled>
+                            <option value="0">Ocupacion</option>
+                            <option value="1">Dependiente</option>
+                            <option value="2">Independiente</option>
+                            <option value="3">Estudiante</option>
+                            <option value="4">No trabaja</option>
+                        </select>
+                    </div>
+    
+                    <div class="input-caja boton">
+                        <input type="submit" value="Enviar Censo!" disabled>
+                    </div>
+                </form>
+
+            </div>
+
+            <div id="seccion_reasignar_persona" class="seccion"></div>
+
+            <div id="seccion_estadisticas" class="seccion"></div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="footer">
+            <h3>Disclaimer</h3>
+
+            <div>
+                <p>Este sitio es parte del obligatorio de Programacion 1 de la ORT</p>
+                <small>Realizado por Diego da Silva</small>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

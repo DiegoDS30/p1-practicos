@@ -12,6 +12,11 @@ form {
     margin-top: 2rem;
 }
 
+label {
+    display: block;
+    margin: 0.7rem 0rem;
+}
+
 .input-caja {
     padding: 1rem 1rem;
 }
@@ -19,7 +24,6 @@ form {
 .input-caja input {
     height: 100%;
     width: 100%;
-    margin-top: 0.4rem;
     padding: 0.4rem 5px;
     font-size: 0.9rem;
     border: 1.5px solid #C7BEBE;
@@ -48,12 +52,43 @@ form {
     cursor: pointer;
 }
 
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 35%;
+    background-color: #fff;
+    border: 1.5px solid #C7BEBE;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+option {
+    color: #223254;
+    background-color: #fff;
+}
+
+option:disabled {
+    display: none;
+}
+
+option:focus {
+    outline: none;
+    border-color: #0077ff;
+    background-color: #b4b4b4;
+}
+
 input:disabled {
     background-color: rgba(128, 128, 128, 0.103);
 }
 
 input[type="button"]:disabled {
     background-color: #5d607ee5;
+}
+
+.input-caja.boton input:hover {
+    background-color: #5d607e;
 }
 
 input:invalid {
