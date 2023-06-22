@@ -17,23 +17,8 @@ let censista_usuario = 0;
 
 let censista_random = datos_censistas [Math.floor(Math.random() * datos_censistas.length)];
 
-for (let i = 0; i < DEPARTAMENTOS.length; i++) {
-    if (i !== 0) {
-        let opcion = document.createElement ('option');
-        opcion.value = i;
-        opcion.innerHTML = DEPARTAMENTOS [i];
-        departamento_usuario.appendChild (opcion);
-    }
-}
-
-for (let i = 0; i < OCUPACIONES.length; i++) {
-    if (i !== 0) {
-        let opcion = document.createElement ('option');
-        opcion.value = i;
-        opcion.innerHTML = OCUPACIONES [i];
-        ocupacion_usuario.appendChild (opcion);
-    }
-}
+Cargar_departamentos (departamento_usuario);
+Cargar_ocupaciones (ocupacion_usuario);
 
 buscar_boton.addEventListener ('click', () => {
 
@@ -160,6 +145,8 @@ usuario_form.addEventListener ('submit', (e) => {
     }
 });
 
+// Habilita el evento para borrar los datos cargados del sistema.
+
 function Habilitar_borrar () {
 
     document.querySelector ('.boton-borrar').addEventListener ('click', () => {
@@ -172,31 +159,33 @@ function Habilitar_borrar () {
 
             if (usuario) {
 
-                confirm ('Esta seguro que desea borrar este usuario?')
+                if (confirm ('Esta seguro que desea borrar sus datos?')) {
 
-                sistema.Borrar_invitado (usuario);
+                    sistema.Borrar_invitado (usuario);
 
-                let campos = document.querySelectorAll ('.habilitar');
-                for (const campo of campos) {
-                    if (campo.id !== 'sltDepartamento' && campo.id !== 'sltOcupacion' && campo.id !== 'btnEnviar') {
-                        campo.value = '';
-                        campo.disabled = true;
-                    } else if (campo.id === 'sltDepartamento') {
-                        campo.value = 0;
-                        campo.disabled = true;
-                    } else if (campo.id === 'sltOcupacion') {
-                        campo.value = 0;
-                        campo.disabled = true;
-                    } else if (campo.id === 'btnEnviar') {
-                        campo.disabled = true;
+                    let campos = document.querySelectorAll ('.habilitar');
+                    for (const campo of campos) {
+                        if (campo.id !== 'sltDepartamento' && campo.id !== 'sltOcupacion' && campo.id !== 'btnEnviar') {
+                            campo.value = '';
+                            campo.disabled = true;
+                        } else if (campo.id === 'sltDepartamento') {
+                            campo.value = 0;
+                            campo.disabled = true;
+                        } else if (campo.id === 'sltOcupacion') {
+                            campo.value = 0;
+                            campo.disabled = true;
+                        } else if (campo.id === 'btnEnviar') {
+                            campo.disabled = true;
+                        }
                     }
+
+                    aviso_usuario.innerHTML = `Los datos del censo han sido borrados<br>
+                    <small>* Los usuarios precargados se borran del sistema, pero se vuelven a cargar cuando se recarga o cambia la pagina</small>`;
+
+                    document.querySelector ('.boton-borrar').parentElement.remove ();
+                    document.querySelector ('.boton-borrar').remove ();
+
                 }
-
-                aviso_usuario.innerHTML = `Los datos del censo han sido borrados<br>
-                <small>* Los usuarios precargados se borran del sistema, pero se vuelven a cargar cuando se recarga o cambia la pagina</small>`;
-
-                document.querySelector ('.boton-borrar').parentElement.remove ();
-                document.querySelector ('.boton-borrar').remove ();
 
             } else {
                     

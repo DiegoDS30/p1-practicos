@@ -4,9 +4,9 @@ let datos_de_usuarios = JSON.parse (localStorage.getItem ('invitados')) || [];
 let datos_temp_censistas = [];
 let datos_temp_usuarios = [];
 
-datos_temp_censistas.push (new Censista (12, "test", "user", "xdxd"));
-datos_temp_censistas.push (new Censista (34, "test 2", "admin", "admin"));
-datos_temp_censistas.push (new Censista (56, "test 3", "test", "test"));
+datos_temp_censistas.push (new Censista (12, "Diego da Silva", "DiegoDS30", "ASd12"));
+datos_temp_censistas.push (new Censista (34, "Artemis", "temmito", "Churu123"));
+datos_temp_censistas.push (new Censista (56, "Apollo", "Apollo1", "123Apollo"));
 
 datos_de_usuarios.push (new Usuario ("Artemis", "da Silva", 116, 76546939, "Rivera", "No trabaja", 12, false));
 datos_de_usuarios.push (new Usuario ("Elliot", "Perez", 35, 92237146, "Treinta y Tres", "Independiente", 34, false));

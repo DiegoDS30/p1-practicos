@@ -68,9 +68,13 @@ class Sistema {
     
     }
 
+    // Busca si existe el invitado por cedula en el array
+
     Buscar_invitado (ci) {
         return this.invitados.find (invitado => invitado.cedula === ci);
     }
+
+    // Actualiza un objeto en el array de invitados.
 
     Actualizar_invitado (upd) {
 
@@ -84,6 +88,8 @@ class Sistema {
 
     }
 
+    // Borra del array un objeto identificándolo por la cedula.
+
     Borrar_invitado (ci) {
 
         let invitado_a_borrar = this.invitados.findIndex (invitado => invitado.cedula === ci);
@@ -93,19 +99,20 @@ class Sistema {
 
     }
 
+    // Busca en el array de invitados, los invitados que faltan por censar y pertenezcan al censista.
+
     Buscar_invitados_censar (censista) {
         return this.invitados.filter (invitado => invitado.censista === censista && invitado.censado === false);
     }
+
+    // Busca el invitado por la cedula y lo asigna a un nuevo censista.
 
     Reasignar_persona_censista (invitado, censista) {
 
         let invitado_cedula = invitado;
         let invitado_a_cambiar = this.invitados.findIndex (invitado => invitado.cedula === invitado_cedula);
 
-        console.log (invitado_a_cambiar);
-
         this.invitados[invitado_a_cambiar].censista = censista;
-        console.log (this.invitados[invitado_a_cambiar]);
 
         localStorage.setItem ('invitados', JSON.stringify (this.invitados));
 

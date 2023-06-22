@@ -1,6 +1,8 @@
-const PASS_REGEX = new RegExp (/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,}$/);
+const PASS_REGEX = new RegExp (/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{5,}$/); // La contraseña debe de contar con cinco caracteres, por lo menos una mayuscula, una minuscula y un numero
 const DATOS = '../datos/db.json';
+// Almacena los departamentos del Uruguay para cargar dinámicamente
 const DEPARTAMENTOS = [false, 'Montevideo', 'Canelones', 'Maldonado', 'Rocha', 'Colonia', 'San José', 'Soriano', 'Flores', 'Florida', 'Lavalleja', 'Durazno', 'Tacuarembó', 'Paysandú', 'Rio Negro', 'Salto', 'Artigas', 'Rivera', 'Cerro Largo', 'Treinta y Tres']
+// Almacena las ocupaciones para cargar dinámicamente
 const OCUPACIONES = [false, 'Dependiente', 'Independiente', 'Estudiante', 'No trabaja']
 
 let sistema = new Sistema ();
@@ -21,7 +23,7 @@ if (user != '') {
     let sitio = document.getElementById ('sitio');
 
     mostrar_usuario.href = './censistas-vista.html'
-    mostrar_usuario.innerHTML = `Bienvenido ${user}!`
+    mostrar_usuario.innerHTML = `Administración de ${user}`
 
     censo.style.display = "none"
 
@@ -34,27 +36,69 @@ document.getElementById ('sitio').addEventListener ('click', () => {
     localStorage.removeItem ('user');
 });
 
+// Genera un objeto nuevo de tipo censista y lo agrega al array de censistas.
+
 function nuevo_usuario_censista (id, nombre, usuario, pass) {
     let censista_nuevo = new Censista (id, nombre, usuario, pass);
-    sistema.agregar_censista (censista_nuevo);
+    sistema.Agregar_censista (censista_nuevo);
 }
+
+// Genera un objeto nuevo de tipo invitado y lo agrega al array de invitados.
 
 function nuevo_usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censista, censado) {
     let usuario_nuevo = new Usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censista, censado);
-    sistema.agregar_invitado (usuario_nuevo);
+    sistema.Agregar_invitado (usuario_nuevo);
 }
+
+// Genera dinámicamente en las etiquetas los departamentos.
+
+function Cargar_departamentos (tag) {
+
+    for (let i = 0; i < DEPARTAMENTOS.length; i++) {
+        if (i !== 0) {
+            let opcion = document.createElement ('option');
+            opcion.value = i;
+            opcion.innerHTML = DEPARTAMENTOS [i];
+            tag.appendChild (opcion);
+        }
+    }
+
+}
+
+// Genera dinámicamente en las etiquetas las ocupaciones.
+
+function Cargar_ocupaciones (tag) {
+
+    for (let i = 0; i < OCUPACIONES.length; i++) {
+        if (i !== 0) {
+            let opcion = document.createElement ('option');
+            opcion.value = i;
+            opcion.innerHTML = OCUPACIONES [i];
+            tag.appendChild (opcion);
+        }
+    }
+
+}
+
+// Carga en variables el departamento según su índice.
 
 function Select_departamentos (departamento) {
     return DEPARTAMENTOS [departamento];
 }
 
+// Carga en variables la ocupación según su índice.
+
 function Select_ocupaciones (ocupacion) {
     return OCUPACIONES [ocupacion];
 }
 
+// Elimina caracteres y símbolos.
+
 function Limpiar_numero (num) {
     return num.replace(/\D/g, '');
 }
+
+// Valida que el número verificador sea correcto.
 
 function Verificar_cedula (ci) {
 

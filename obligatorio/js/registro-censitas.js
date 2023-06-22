@@ -60,7 +60,6 @@ registro_form.addEventListener ('submit', (e) => {
 
 });
 
-
 /**
  * La funcion busca si ya existe una ID en un array de objetos.
  * @param datos - el parametro "datos" es un array de objetos
@@ -73,6 +72,8 @@ registro_form.addEventListener ('submit', (e) => {
 function Verificar_id (datos, id) {
     return datos.some (dato => dato.id === id);
 }
+
+// Busca en el array que el nombre de usuario nuevo sea único.
 
 function Verificar_usuario (datos, usuario) {
     return datos.some (dato => dato.usuario === usuario);

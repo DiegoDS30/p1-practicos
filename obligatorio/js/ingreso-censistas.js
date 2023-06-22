@@ -9,20 +9,18 @@ ingreso_form.addEventListener ('submit', (e) => {
 
     e.preventDefault();
 
-    let usuario_temp = usuario.value;
-    usuario_temp = usuario_temp.toLowerCase ();
-
+    let usuario_temp = usuario.value.toLowerCase ();
     let pass_temp = pass.value;
 
     if (usuario_temp && pass_temp) { // Que todos los campos esten llenos
 
-        if (Verificar_pass (datos_censistas, usuario_temp, pass_temp)) { // Que la contraseña sea correcta
+        let censista = datos_censistas.find (censista => censista.usuario.toLowerCase() === usuario_temp);
 
-            let censista = datos_censistas.find (censista => censista.usuario === usuario_temp);
+        if (Verificar_pass (datos_censistas, censista.usuario, pass_temp)) { // Que la contraseña sea correcta
 
             localStorage.setItem ('user', JSON.stringify (censista));
 
-            alert ('Bienvenido ' + usuario_temp);
+            alert ('Bienvenido/a ' + censista.nombre);
 
             window.location.href = '../index.html';
 
@@ -39,6 +37,8 @@ ingreso_form.addEventListener ('submit', (e) => {
     }
 
 });
+
+// Busca en el array que el usuario tenga la contraseña correcta.
 
 function Verificar_pass (datos, user, pass) {
     return datos.some (dato => dato.usuario === user && dato.pass === pass);

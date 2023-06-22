@@ -1,3 +1,5 @@
+// Oculta la sección actual cuando se cambia a una nueva.
+
 function Ocultar_secciones () {
     let secciones = document.querySelectorAll ('.seccion');
     for (const seccion of secciones) {
@@ -10,6 +12,8 @@ for (const boton of botones) {
     boton.addEventListener ('click', Mostrar_seccion);
 }
 
+// Muestra la sección nueva cuando se cambia.
+
 Cambiar_seccion ('seccion_ingresar_persona');
 
 function Mostrar_seccion () {
@@ -18,6 +22,8 @@ function Mostrar_seccion () {
     console.log (seccion);
     Cambiar_seccion (seccion);
 }
+
+// Toma el identificador de la sección nueva para mostrar y oculta la vieja.
 
 function Cambiar_seccion (nueva_seccion) {
     Ocultar_secciones ();
@@ -54,33 +60,12 @@ let departamento_edad = document.getElementById ('sltDepartamento-edades');
 
 // Cargamos los elementos de los array departamentos y las ocupaciones en las opciones de los select
 
-for (let i = 0; i < DEPARTAMENTOS.length; i++) {
-    if (i !== 0) {
-        let opcion = document.createElement ('option');
-        opcion.value = i;
-        opcion.innerHTML = DEPARTAMENTOS [i];
+Cargar_departamentos (departamento_censo);
+Cargar_departamentos (departamento_cargado);
+Cargar_departamentos (departamento_edad);
 
-        let opcion_cargado = document.createElement ('option');
-        let opcion_edad = document.createElement ('option');
-
-        opcion_cargado = opcion.cloneNode (true);
-        opcion_edad = opcion.cloneNode (true);
-
-        departamento_censo.appendChild (opcion);
-        departamento_cargado.appendChild (opcion_cargado);
-        departamento_edad.appendChild (opcion_edad);
-    }
-}
-
-for (let i = 0; i < OCUPACIONES.length; i++) {
-    if (i !== 0) {
-        let opcion = document.createElement ('option');
-        opcion.value = i;
-        opcion.innerHTML = OCUPACIONES [i];
-        ocupacion_censo.appendChild (opcion);
-        ocupacion_cargado.appendChild (opcion);
-    }
-}
+Cargar_ocupaciones (ocupacion_censo);
+Cargar_ocupaciones (ocupacion_cargado);
 
 censo_form.addEventListener ('submit', (e) => {
 
@@ -95,7 +80,9 @@ censo_form.addEventListener ('submit', (e) => {
 
     if (nombre_persona && apellido_persona && edad_persona && cedula_persona && departamento_persona && ocupacion_persona) {
 
-        if (Verificar_cedula(cedula_persona)) {
+        let cedula_verificada = Verificar_cedula (cedula_persona);
+
+        if (!sistema.Buscar_invitado (Number(cedula_persona)) && cedula_verificada) {
 
             nuevo_usuario (nombre_persona, apellido_persona, edad_persona, Number(cedula_persona), departamento_persona, ocupacion_persona, censista_actual, true);
 
@@ -110,7 +97,7 @@ censo_form.addEventListener ('submit', (e) => {
 
         } else {
 
-            aviso.innerHTML = 'La cedula ingresada no es valida'
+            aviso.innerHTML = 'La cedula ingresada no es valida o ya se encuentra en el sistema'
 
         }
 
@@ -241,6 +228,8 @@ confirmar_form.addEventListener ('submit', (e) => {
 let reasignar_persona = document.getElementById ('reasignar-personas');
 let invitados_reasignar = sistema.Buscar_invitados_censar (censista_actual);
 
+// Muestra todos los invitados que no hayan sido validados y estén asignados al censista actual.
+
 function Reasignar_personas () {
 
     reasignar_persona.innerHTML = '';
@@ -273,10 +262,13 @@ function Reasignar_personas () {
             let select_reasignar = document.createElement ('select');
 
             for (const censista of datos_censistas) {
+
+                if (censista.id === censista_actual) continue;
                 let opcion = document.createElement ('option');
                 opcion.value = censista.id;
                 opcion.innerHTML = censista.nombre;
                 select_reasignar.appendChild (opcion);
+
             }
 
             reasignar_persona.appendChild (persona);
@@ -297,12 +289,12 @@ function Reasignar_personas () {
 
 }
 
+// Toma la cedula de la persona y la id del nuevo censista y reasigna la persona a ese censista.
+
 function Reasignar_censista () {
 
     let id_invitado = Number(this.parentNode.parentNode.id);
-    console.log (id_invitado);
     let id_censista = Number(this.parentNode.previousSibling.firstChild.value);
-    console.log (id_censista);
 
     sistema.Reasignar_persona_censista (id_invitado, id_censista);
 
@@ -321,6 +313,8 @@ let select_departamentos = document.getElementById ('sltDepartamento-edades');
 let menores_edad = document.getElementById ('menores-edad');
 let mayores_edad = document.getElementById ('mayores-edad');
 
+// Genera la tabla de las estadísticas cuando se cambia a la sección.
+
 function Tabla_estadisticas () {
 
     personas_censadas.innerHTML = '';
@@ -333,13 +327,21 @@ function Tabla_estadisticas () {
 
 }
 
+// Devuelve la cantidad de personas que sus datos hayan sido validados.
+
 function Personas_censadas () {
     return datos_usuarios.filter (usuario => usuario.censado === true).length;
 }
 
+// Calcula el porcentaje de personas que faltan por validar.
+
 function Personas_pendientes () {
-    return datos_usuarios.filter (usuario => usuario.censado === false).length;
+    let personas_pendientes_censar = datos_usuarios.filter (usuario => usuario.censado === false).length;
+    let total = datos_usuarios.length;
+    return `${Math.round ((personas_pendientes_censar / total) * 100)}%`;
 }
+
+// Genera en la tabla todos los departamentos y la cantidad de personas que fueron censadas en cada uno de ellos.
 
 function Personas_por_departamento () {
 
@@ -389,10 +391,9 @@ select_departamentos.addEventListener ('change', () => {
 
     let menores = Personas_menores_edad (departamento_seleccionado);
     let mayores = Personas_mayores_edad (departamento_seleccionado);
+    let total = menores + mayores;
 
-    if (menores !== 0) {
-
-        let total = menores + mayores;
+    if (menores !== 0 || mayores !== 0) {
 
         let porcentaje_menores = Math.round ((menores / total) * 100);
         let porcentaje_mayores = Math.round ((mayores / total) * 100);
@@ -438,12 +439,16 @@ select_departamentos.addEventListener ('change', () => {
 
 })
 
+//La cantidad de menores censadas en el departamento.
+
 function Personas_menores_edad (departamento) {
-    return datos_usuarios.filter (usuario => usuario.edad < 18 && usuario.departamento === DEPARTAMENTOS[departamento]).length;
+    return datos_usuarios.filter (usuario => (usuario.edad < 18) && (usuario.departamento === DEPARTAMENTOS[departamento])).length;
 }
 
+// La cantidad de personas mayores censadas en el departamento.
+
 function Personas_mayores_edad (departamento) {
-    return datos_usuarios.filter (usuario => usuario.edad >= 18 && usuario.departamento === DEPARTAMENTOS[departamento]).length;
+    return datos_usuarios.filter (usuario => (usuario.edad >= 18) && (usuario.departamento === DEPARTAMENTOS[departamento])).length;
 }
 
 // --- TERMINA ESTADISTICAS ---
