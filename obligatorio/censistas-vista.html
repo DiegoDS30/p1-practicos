@@ -167,9 +167,53 @@
 
             </div>
 
-            <div id="seccion_reasignar_persona" class="seccion"></div>
+            <div id="seccion_reasignar_persona" class="seccion">
 
-            <div id="seccion_estadisticas" class="seccion"></div>
+                <div id="reasignar-personas"></div>
+
+            </div>
+
+            <div id="seccion_estadisticas" class="seccion">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Personas censadas hasta el momento</th>
+                            <th>Personas censadas por departamento</th>
+                            <th>Personas pendientes de validar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="personas-censadas"></td>
+                            <td id="personas-por-departamento"></td>
+                            <td id="personas-pendientes"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                    <div id="edades">
+                        <h3>Elija un departamento para ver el porcentaje de personas censadas por edad</h3>
+                        <div class="input-caja select">
+                            <select id="sltDepartamento-edades">
+                                <option value="0" disabled selected>Departamento</option>
+                            </select>
+                        </div>
+                        <table>
+                            <thead>
+                                <th>Porcentaje de menores de edad</th>
+                                <th>Porcentaje de mayores de edad</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="menores-edad"></td>
+                                    <td id="mayores-edad"></td>
+                                </tr>
+                        </table>
+                    </div>
+
+                <p>* Tanto los valores de las personas censadas por Departamento, como el porcentaje, son la cantidad de personas con censos validados</p>
+            </div>
 
         </div>
 

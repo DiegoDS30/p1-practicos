@@ -39,8 +39,8 @@ function nuevo_usuario_censista (id, nombre, usuario, pass) {
     sistema.agregar_censista (censista_nuevo);
 }
 
-function nuevo_usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censita, censado) {
-    let usuario_nuevo = new Usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censita, censado);
+function nuevo_usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censista, censado) {
+    let usuario_nuevo = new Usuario (nombre, apellido, edad, cedula, departamento, ocupacion, censista, censado);
     sistema.agregar_invitado (usuario_nuevo);
 }
 

@@ -44,18 +44,22 @@ label {
 }
 
 .input-caja.boton input {
-    width: 60%;
+    width: 100%;
     background-color: #A7ABDD;
     letter-spacing: 1px;
     border: none;
     color: #E9E7EE;
 }
 
+form .input-caja.boton input {
+    width: 60%;
+}
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding: 7px 40px 7px 12px;
-    width: 35%;
+    padding: 7px 10px 7px 12px;
+    width: 100%;
     background-color: #fff;
     border: 1.5px solid #C7BEBE;
     border-radius: 5px;
@@ -65,6 +69,11 @@ select {
 
 select:disabled {
     cursor: not-allowed;
+}
+
+form select {
+    padding: 7px 40px 7px 12px;
+    width: 35%;
 }
 
 option {
@@ -96,6 +105,6 @@ input:disabled {
     cursor: pointer;
 }
 
-input:invalid {
-    outline: red;
+.boton-borrar {
+    background-color: #750202 !important;
 }

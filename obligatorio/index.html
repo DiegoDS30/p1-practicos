@@ -9,6 +9,7 @@
     <script src="./datos/Usuario.js" defer></script>
     <script src="./js/init.js" defer></script>
     <script src="./datos/testdb.js" defer></script>
+    <script src="./js/index.js" defer></script>
     <title>Censo 2023 Uruguay</title>
 </head>
 <body class="container">
@@ -42,6 +43,29 @@
     </header>
 
     <main>
+
+        <div>
+
+            <h1>¡Bienvenido al Censo 2023!</h1>
+
+            <p>El censo es una encuesta que se realiza cada 10 años en todo el país. El censo es la única fuente de información que permite conocer la cantidad de personas que viven en Uruguay, dónde viven, cómo viven y cuáles son sus características sociodemográficas.</p>
+
+            <h3>Censados hasta el momento:</h3>
+
+            <table class="tabla-censados">
+                <thead>
+                    <tr>
+                        <th>Departamento</th>
+                        <th>Estudian</th>
+                        <th>No Trabajan</th>
+                        <th>Dependientes o independientes</th>
+                        <th>Porcentaje del total de censados</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-censados">
+                </tbody>
+            </table>
+        </div>
 
     </main>
 

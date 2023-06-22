@@ -81,7 +81,8 @@ li a:hover {
     color: #333;
 }
 
-.censistas-menu {
+.censistas-menu,
+.reasignar-presonas {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -104,8 +105,83 @@ li a:hover {
     width: 100%;
 }
 
+.persona {
+    margin: 1.2rem 0rem;
+    border: 1.5px solid #C7BEBE;
+    border-radius: 5px;
+}
+
+.parrafo {
+    margin: 1rem 1rem;
+}
+
+h1 {
+    margin: 2rem 0rem;
+    color: rgb(59, 59, 59);
+    text-align: center;
+}
+
 h2 {
     cursor: pointer;
+}
+
+main h3 {
+    color: rgb(105, 105, 105);
+    text-align: center;
+}
+
+
+table {
+    width: 75%;
+    border: 1px solid #C7BEBE;
+    border-radius: 5px;
+    border-collapse: collapse;
+    margin: 1rem 0rem;
+    position: relative;
+}
+
+.tabla-censados {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: #A7ABDD;
+    color: #E9E7EE;
+    padding: 0.5rem 0rem;
+}
+
+td {
+    padding: 0.5rem 0rem;
+    border: 1px solid #C7BEBE;
+    text-align: center;
+}
+
+.fila {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.fila td {
+    width: 100%;
+    border: none;
+}   
+
+tr:nth-child(even) {
+    background-color: #E9E7EE;
+}
+
+#edades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+#edades .input-caja {
+    width: 40%;
 }
 
 /* Main - FIN*/
@@ -126,8 +202,4 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
- 
-input[type=number] {
-    -moz-appearance: textfield;
 }

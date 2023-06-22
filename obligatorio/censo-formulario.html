@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Diego da Silva">
+    <script src="./datos/Usuario.js" defer></script>
+    <script src="./js/init.js" defer></script>
+    <script src="./datos/testdb.js" defer></script>
+    <script src="./js/censo-formulario.js" defer></script>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/forms.css">
     <title>Censo 2023 Uruguay</title>
@@ -50,60 +54,61 @@
                 <p>Primero introduzca su cedula para verificar su estado.</p>
             </div>
 
-            <form action="" id="censo-user" autocomplete="off">
+            <div>
 
                 <div class="input-caja">
-                    <label for="nbrBuscarCedula">Ingrese su cedula!</label>
-                    <input type="number" id="nbrBuscarCedula" required>
+                    <label for="nbrBuscarCedula">Ingrese la cedula de la persona</label>
+                    <input type="text" id="nbrBuscarCedula" required>
                 </div>
     
                 <div class="input-caja boton">
-                    <input type="button" value="Buscar!">
+                    <input type="button" value="Buscar!" id="btnBuscar">
                 </div>
 
-                <p id="pEstado"></p>
+                <p id="pAviso-buscar"></p>
+
+            </div>
+
+            <form action="" id="censo-user" autocomplete="off">
 
                 <div class="input-caja">
                     <label for="txtNombre">Nombre</label>
-                    <input type="text" id="txtNombre" required disabled>
+                    <input type="text" id="txtNombre" class="habilitar" required disabled>
                 </div>
 
                 <div class="input-caja">
                     <label for="txtApellido">Apellido</label>
-                    <input type="text" id="txtApellido" required disabled>
+                    <input type="text" id="txtApellido"  class="habilitar"required disabled>
                 </div>
 
                 <div class="input-caja">
                     <label for="nbrEdad">Edad</label>
-                    <input type="number" id="nbrEdad" min="0" max="130" required disabled>
+                    <input type="text" id="nbrEdad" min="0" max="130" class="habilitar" required disabled>
                 </div>
 
                 <div class="input-caja">
                     <label for="nbrCedula">Cedula</label>
-                    <input type="number" id="nbrCedula" required disabled>
+                    <input type="text" id="nbrCedula" class="habilitar" required disabled>
                 </div>
 
                 <div class="input-caja select">
                     <label for="sltDepartamento">Departamento</label>
-                    <select id="sltDepartamento" required disabled>
+                    <select id="sltDepartamento" class="habilitar" required disabled>
                         <option value="0">Departamento</option>
-                        <option value="1">Montevideo</option>
                     </select>
                 </div>
 
                 <div class="input-caja select">
                     <label for="sltOcupacion">Ocupacion</label>
-                    <select id="sltOcupacion" required disabled>
+                    <select id="sltOcupacion" class="habilitar" required disabled>
                         <option value="0">Ocupacion</option>
-                        <option value="1">Dependiente</option>
-                        <option value="2">Independiente</option>
-                        <option value="3">Estudiante</option>
-                        <option value="4">No trabaja</option>
                     </select>
                 </div>
 
+                <p id="pAviso"></p>
+
                 <div class="input-caja boton">
-                    <input type="submit" value="Enviar Censo!" disabled>
+                    <input type="submit" value="Enviar Censo!" id="btnEnviar" class="habilitar" disabled>
                 </div>
 
             </form>
